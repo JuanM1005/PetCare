@@ -338,6 +338,18 @@ when a domain-specific name is possible.
 
 ## 9. React Components
 
+## React Component Style
+
+Use arrow functions for React components.
+
+Prefer:
+
+```tsx
+export const PatientCard = () => {
+  return <div>PatientCard</div>;
+};
+```
+
 Prefer small, focused and reusable components.
 
 A component should have a clear responsibility.

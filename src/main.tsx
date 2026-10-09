@@ -1,10 +1,18 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import './index.css'
-import App from './App.tsx'
+import { StrictMode } from 'react';
+import { createRoot } from 'react-dom/client';
+import { RouterProvider } from 'react-router';
 
-createRoot(document.getElementById('root')!).render(
+import { router } from '@/app/router/router';
+import '@/styles/global.css';
+
+const rootElement = document.getElementById('root');
+
+if (!rootElement) {
+  throw new Error('No se encontró el elemento raíz de la aplicación.');
+}
+
+createRoot(rootElement).render(
   <StrictMode>
-    <App />
+    <RouterProvider router={router} />
   </StrictMode>,
-)
+);
