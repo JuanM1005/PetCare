@@ -144,6 +144,10 @@ through React Router's `Outlet`. Do not duplicate the application shell inside f
 Header is a reusable layout component responsible for page context and global application
 controls. Feature-specific actions and content belong to the route page, not Header.
 
+Feature-specific components belong inside their feature directory. Do not move domain-specific
+components such as Dashboard metric cards into the generic UI design system unless they become
+genuinely reusable across multiple features.
+
 Keep clear separation between:
 
 - presentation

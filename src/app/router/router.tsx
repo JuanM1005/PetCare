@@ -1,10 +1,10 @@
 import { createBrowserRouter, Navigate } from 'react-router';
 
 import { App } from '@/app/App';
-import { DashboardPlaceholderPage } from '@/app/dev/DashboardPlaceholderPage';
 import { DesignSystemPreviewPage } from '@/app/dev/DesignSystemPreviewPage';
 import { SidebarPreviewPage } from '@/app/dev/SidebarPreviewPage';
 import { AppLayout } from '@/components/layout';
+import { DashboardPage } from '@/features/dashboard';
 
 export const router = createBrowserRouter([
   {
@@ -28,7 +28,7 @@ export const router = createBrowserRouter([
         children: [
           {
             path: 'dashboard',
-            Component: DashboardPlaceholderPage,
+            Component: DashboardPage,
           },
         ],
       },
