@@ -137,6 +137,13 @@ Each component directory should expose a small explicit public API through `inde
 Use this structure for reusable components, but do not create unnecessary files when a component
 genuinely does not need them.
 
+`AppLayout` is the shared shell for authenticated and clinical application routes. It composes
+reusable layout components such as Sidebar and, eventually, Header, and renders route content
+through React Router's `Outlet`. Do not duplicate the application shell inside feature pages.
+
+Header is a reusable layout component responsible for page context and global application
+controls. Feature-specific actions and content belong to the route page, not Header.
+
 Keep clear separation between:
 
 - presentation

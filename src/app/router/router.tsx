@@ -1,9 +1,10 @@
-import { createBrowserRouter } from 'react-router';
+import { createBrowserRouter, Navigate } from 'react-router';
 
 import { App } from '@/app/App';
+import { DashboardPlaceholderPage } from '@/app/dev/DashboardPlaceholderPage';
 import { DesignSystemPreviewPage } from '@/app/dev/DesignSystemPreviewPage';
 import { SidebarPreviewPage } from '@/app/dev/SidebarPreviewPage';
-import { PetCarePage } from '@/app/pages/PetCarePage';
+import { AppLayout } from '@/components/layout';
 
 export const router = createBrowserRouter([
   {
@@ -12,7 +13,7 @@ export const router = createBrowserRouter([
     children: [
       {
         index: true,
-        Component: PetCarePage,
+        element: <Navigate replace to="/dashboard" />,
       },
       {
         path: 'design-system',
@@ -21,6 +22,15 @@ export const router = createBrowserRouter([
       {
         path: 'sidebar-preview',
         Component: SidebarPreviewPage,
+      },
+      {
+        Component: AppLayout,
+        children: [
+          {
+            path: 'dashboard',
+            Component: DashboardPlaceholderPage,
+          },
+        ],
       },
     ],
   },

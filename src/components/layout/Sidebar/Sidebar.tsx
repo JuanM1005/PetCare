@@ -37,9 +37,9 @@ export const Sidebar = ({ className }: SidebarProps) => {
         type="button"
       >
         {isCollapsed ? (
-          <FiChevronRight aria-hidden="true" className="size-4" />
+          <FiChevronRight aria-hidden="true" className="size-4 cursor-pointer" />
         ) : (
-          <FiChevronLeft aria-hidden="true" className="size-4" />
+          <FiChevronLeft aria-hidden="true" className="size-4 cursor-pointer" />
         )}
       </button>
 
@@ -89,7 +89,7 @@ export const Sidebar = ({ className }: SidebarProps) => {
       <nav
         aria-label="Navegación principal"
         className={clsx(
-          'min-h-0 flex-1 overflow-y-auto py-6 [scrollbar-color:var(--color-neutral-300)_transparent] [scrollbar-width:thin] [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-neutral-300 [&::-webkit-scrollbar-thumb:hover]:bg-neutral-400 [&::-webkit-scrollbar-track]:bg-transparent [&::-webkit-scrollbar]:w-1.5',
+          'min-h-0 flex-1 overflow-y-auto py-6 [scrollbar-color:var(--color-neutral-300)_transparent] scrollbar-thin [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-neutral-300 [&::-webkit-scrollbar-thumb:hover]:bg-neutral-400 [&::-webkit-scrollbar-track]:bg-transparent [&::-webkit-scrollbar]:w-1.5',
           isCollapsed ? 'px-3' : 'px-6',
         )}
       >
