@@ -554,7 +554,9 @@ Instead, expose the PetCare value through the theme/design-token layer.
 
 # 15. Surfaces
 
-PetCare should primarily use light surfaces.
+PetCare supports Light and Dark themes. Light preserves the approved visual appearance, while
+Dark reuses the existing primary, neutral and semantic foundations through a small semantic token
+layer for application backgrounds, surfaces, text and borders.
 
 The current color foundation provides:
 
@@ -582,6 +584,9 @@ floating dramatically above it.
 
 Exact surface combinations will be defined by approved component and screen
 designs.
+
+Components should consume semantic surface, text and border tokens so both themes remain coherent
+without duplicating theme-specific color rules in every component.
 
 ---
 
@@ -701,6 +706,12 @@ Exact dimensions and behavior should follow the approved Figma screens.
 
 Do not assume dimensions that have not yet been defined.
 
+The Header includes search, `ThemeToggle`, notifications and `LanguageToggle`. It does not use a
+globe control. The Dashboard greeting places the localized current date and time on its right side.
+
+Connection and synchronization status belongs to the Sidebar. Operational quick actions belong to
+the Dashboard and should not be duplicated in the Sidebar or greeting area.
+
 ---
 
 # 20. Sidebar
@@ -714,10 +725,9 @@ Expected responsibilities may include:
 - PetCare branding;
 - navigation;
 - active route indication;
-- quick actions;
 - connection/synchronization information;
 - current user information;
-- secondary/settings actions.
+- profile, settings and sign-out actions.
 
 Use React Router `NavLink` for route-based navigation.
 

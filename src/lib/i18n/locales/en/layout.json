@@ -1,0 +1,32 @@
+{
+  "header": {
+    "title": "Dashboard",
+    "subtitle": "Today's clinic operations overview",
+    "search": "Search",
+    "searchPlaceholder": "Search patients...",
+    "notifications": "Notifications"
+  },
+  "sidebar": {
+    "clinic": "Veterinary clinic",
+    "doctorRole": "Clinical veterinarian",
+    "disconnected": "Disconnected",
+    "main": "Main",
+    "navigationLabel": "Main navigation",
+    "collapse": "Collapse sidebar",
+    "expand": "Expand sidebar",
+    "appointmentsCount": "{{count}} appointments",
+    "offlineReady": "Offline mode ready",
+    "pendingChanges": "{{count}} changes pending sync",
+    "account": "Account",
+    "profile": "My profile",
+    "settings": "Settings",
+    "logout": "Sign out",
+    "navigation": {
+      "dashboard": "Dashboard",
+      "patients": "Patients",
+      "appointments": "Appointments",
+      "medicalRecords": "Medical records",
+      "owners": "Owners"
+    }
+  }
+}

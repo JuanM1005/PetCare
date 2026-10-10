@@ -65,6 +65,14 @@ bunx
 
 Do not use npm unless there is a concrete reason.
 
+Use `i18next` with `react-i18next` as the official internationalization solution. PetCare
+currently supports Spanish and English, and translations must use statically imported resources
+to preserve offline-first compatibility.
+
+Light and dark appearance is managed by a focused `ThemeProvider`. Prefer semantic design tokens
+for surfaces, text and borders instead of scattering hardcoded theme-specific colors throughout
+components.
+
 ---
 
 ## 3. Design Source of Truth

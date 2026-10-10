@@ -5,9 +5,10 @@ import type { ButtonProps, ButtonSize, ButtonVariant } from './Button.types';
 
 const variantClasses: Record<ButtonVariant, string> = {
   primary: 'bg-primary-500 text-neutral-0 hover:bg-primary-600',
-  secondary: 'border-hairline border-neutral-300 bg-neutral-0 text-neutral-900 hover:bg-neutral-50',
+  secondary:
+    'border-hairline border-border-strong bg-surface text-text-primary hover:bg-surface-hover',
   danger: 'bg-danger text-neutral-0 hover:opacity-90',
-  ghost: 'bg-transparent text-primary-600 hover:bg-primary-50',
+  ghost: 'bg-transparent text-primary-600 hover:bg-primary-500/10',
 };
 
 const sizeClasses: Record<ButtonSize, string> = {
@@ -38,7 +39,7 @@ export const Button = ({
   return (
     <button
       className={clsx(
-        'inline-flex items-center justify-center gap-2 rounded-md font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50',
+        'inline-flex items-center justify-center gap-2 rounded-md font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2 focus-visible:ring-offset-surface disabled:cursor-not-allowed disabled:opacity-50',
         variantClasses[variant],
         sizeClasses[size],
         fullWidth && 'w-full',

@@ -1,4 +1,5 @@
 import { clsx } from 'clsx';
+import { useTranslation } from 'react-i18next';
 
 import type { SpinnerProps, SpinnerSize, SpinnerVariant } from './Spinner.types';
 
@@ -13,7 +14,7 @@ const variantClasses: Record<SpinnerVariant, string> = {
   success: 'text-success',
   warning: 'text-warning',
   danger: 'text-danger',
-  neutral: 'text-neutral-500',
+  neutral: 'text-text-muted',
 };
 
 export const Spinner = ({
@@ -27,6 +28,7 @@ export const Spinner = ({
   'aria-label': ariaLabel,
   ...rest
 }: SpinnerProps) => {
+  const { t } = useTranslation('common');
   const isHidden = ariaHidden === true || ariaHidden === 'true';
 
   return (
@@ -35,7 +37,7 @@ export const Spinner = ({
       className={clsx('inline-flex items-center gap-2', variantClasses[variant], className)}
       role={isHidden ? undefined : (role ?? 'status')}
       aria-hidden={ariaHidden}
-      aria-label={isHidden || label ? ariaLabel : (ariaLabel ?? 'Cargando')}
+      aria-label={isHidden || label ? ariaLabel : (ariaLabel ?? t('loading'))}
       {...rest}
     >
       <span
@@ -45,7 +47,7 @@ export const Spinner = ({
           sizeClasses[size],
         )}
       />
-      {label ? <span className="text-sm text-neutral-600">{label}</span> : null}
+      {label ? <span className="text-sm text-text-secondary">{label}</span> : null}
     </span>
   );
 };

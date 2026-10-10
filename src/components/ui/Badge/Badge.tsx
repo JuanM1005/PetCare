@@ -6,8 +6,8 @@ const variantClasses: Record<BadgeVariant, string> = {
   success: 'border-success/30 bg-success/10 text-success',
   warning: 'border-warning/30 bg-warning/10 text-warning',
   danger: 'border-danger/30 bg-danger/10 text-danger',
-  primary: 'border-primary-300 bg-primary-50 text-primary-700',
-  neutral: 'border-neutral-300 bg-neutral-100 text-neutral-600',
+  primary: 'border-primary-500/30 bg-primary-500/10 text-primary-500',
+  neutral: 'border-border-strong bg-surface-subtle text-text-secondary',
 };
 
 const dotClasses: Record<BadgeVariant, string> = {
@@ -15,7 +15,7 @@ const dotClasses: Record<BadgeVariant, string> = {
   warning: 'bg-warning',
   danger: 'bg-danger',
   primary: 'bg-primary-500',
-  neutral: 'bg-neutral-500',
+  neutral: 'bg-text-muted',
 };
 
 const sizeClasses: Record<BadgeSize, string> = {

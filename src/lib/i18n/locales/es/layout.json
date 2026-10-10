@@ -1,0 +1,32 @@
+{
+  "header": {
+    "title": "Panel",
+    "subtitle": "Resumen operativo de la clínica para hoy",
+    "search": "Buscar",
+    "searchPlaceholder": "Buscar pacientes...",
+    "notifications": "Notificaciones"
+  },
+  "sidebar": {
+    "clinic": "Clínica veterinaria",
+    "doctorRole": "Veterinario clínico",
+    "disconnected": "Desconectado",
+    "main": "Principal",
+    "navigationLabel": "Navegación principal",
+    "collapse": "Colapsar barra lateral",
+    "expand": "Expandir barra lateral",
+    "appointmentsCount": "{{count}} citas",
+    "offlineReady": "Modo offline listo",
+    "pendingChanges": "{{count}} cambios pendientes de sincronización",
+    "account": "Cuenta",
+    "profile": "Mi perfil",
+    "settings": "Configuración",
+    "logout": "Cerrar sesión",
+    "navigation": {
+      "dashboard": "Panel",
+      "patients": "Pacientes",
+      "appointments": "Citas",
+      "medicalRecords": "Historial clínico",
+      "owners": "Propietarios"
+    }
+  }
+}

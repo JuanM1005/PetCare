@@ -3,8 +3,8 @@ import { clsx } from 'clsx';
 import type { CardPadding, CardProps, CardVariant } from './Card.types';
 
 const variantClasses: Record<CardVariant, string> = {
-  default: 'border-hairline border-neutral-200 bg-neutral-0 shadow-sm',
-  outline: 'border-hairline border-neutral-300 bg-neutral-0',
+  default: 'border-hairline border-border bg-surface shadow-sm',
+  outline: 'border-hairline border-border-strong bg-surface',
   ghost: 'border-width-none bg-transparent',
 };
 
@@ -29,7 +29,7 @@ export const Card = ({
         'rounded-lg',
         variantClasses[variant],
         paddingClasses[padding],
-        interactive && 'transition-colors hover:border-primary-300 hover:bg-primary-50/30',
+        interactive && 'transition-colors hover:border-primary-300 hover:bg-primary-500/5',
         className,
       )}
       {...rest}

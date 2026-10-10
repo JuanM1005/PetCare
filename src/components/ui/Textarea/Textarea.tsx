@@ -82,7 +82,7 @@ export const Textarea = ({
           ) : null}
         </span>
         {showCount && maxLength ? (
-          <span className="ml-auto shrink-0 text-xs text-neutral-400" id={countId}>
+          <span className="ml-auto shrink-0 text-xs text-text-muted" id={countId}>
             {characterCount} / {maxLength}
           </span>
         ) : null}

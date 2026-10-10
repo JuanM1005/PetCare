@@ -9,28 +9,28 @@ export const App = () => {
         position="top-right"
         toastOptions={{
           style: {
-            background: 'var(--color-neutral-0)',
-            border: 'var(--border-width-hairline) solid var(--color-neutral-200)',
+            background: 'var(--surface-elevated)',
+            border: 'var(--border-width-hairline) solid var(--border-color)',
             borderRadius: 'var(--radius-md)',
             boxShadow: 'none',
-            color: 'var(--color-neutral-900)',
+            color: 'var(--text-primary)',
           },
           success: {
             iconTheme: {
               primary: 'var(--color-success)',
-              secondary: 'var(--color-neutral-0)',
+              secondary: 'var(--surface)',
             },
           },
           error: {
             iconTheme: {
               primary: 'var(--color-danger)',
-              secondary: 'var(--color-neutral-0)',
+              secondary: 'var(--surface)',
             },
           },
           loading: {
             iconTheme: {
               primary: 'var(--color-primary-500)',
-              secondary: 'var(--color-neutral-200)',
+              secondary: 'var(--border-color)',
             },
           },
         }}

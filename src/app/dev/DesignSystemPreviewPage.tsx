@@ -8,11 +8,13 @@ import {
   Card,
   Checkbox,
   Input,
+  LanguageToggle,
   Modal,
   Radio,
   Select,
   Spinner,
   Textarea,
+  ThemeToggle,
 } from '@/components/ui';
 
 interface PreviewSectionProps {
@@ -22,8 +24,8 @@ interface PreviewSectionProps {
 
 const PreviewSection = ({ children, title }: PreviewSectionProps) => {
   return (
-    <section className="rounded-lg border-hairline border-neutral-200 bg-neutral-0 p-6">
-      <h2 className="mb-6 border-l-4 border-primary-500 bg-neutral-100 px-4 py-3 text-lg font-semibold">
+    <section className="rounded-lg border-hairline border-border bg-surface p-6">
+      <h2 className="mb-6 border-l-4 border-primary-500 bg-surface-subtle px-4 py-3 text-lg font-semibold">
         {title}
       </h2>
       {children}
@@ -54,12 +56,12 @@ export const DesignSystemPreviewPage = () => {
   };
 
   return (
-    <main className="min-h-svh bg-neutral-50 px-5 py-8 text-neutral-900 sm:px-8">
+    <main className="min-h-svh bg-app-background px-5 py-8 text-text-primary sm:px-8">
       <div className="mx-auto flex max-w-7xl flex-col gap-8">
         <header>
           <p className="text-sm font-medium text-primary-600">PetCare</p>
           <h1 className="text-2xl font-semibold">Design System — componentes base</h1>
-          <p className="mt-2 text-sm text-neutral-600">
+          <p className="mt-2 text-sm text-text-secondary">
             Vista temporal para comprobar variantes, estados y accesibilidad.
           </p>
         </header>
@@ -204,7 +206,7 @@ export const DesignSystemPreviewPage = () => {
                 />
               </fieldset>
               <fieldset className="flex flex-col gap-3" disabled>
-                <legend className="mb-1 text-sm font-medium text-neutral-500">
+                <legend className="mb-1 text-sm font-medium text-text-muted">
                   Estado del expediente
                 </legend>
                 <Radio label="Activo" name="record-status" value="active" defaultChecked disabled />
@@ -217,22 +219,22 @@ export const DesignSystemPreviewPage = () => {
             <div className="grid gap-4 sm:grid-cols-2">
               <Card>
                 <strong className="font-medium">Default</strong>
-                <p className="mt-1 text-sm text-neutral-600">Con sombra y borde</p>
+                <p className="mt-1 text-sm text-text-secondary">Con sombra y borde</p>
               </Card>
               <Card variant="outline">
                 <strong className="font-medium">Outline</strong>
-                <p className="mt-1 text-sm text-neutral-600">Solo borde</p>
+                <p className="mt-1 text-sm text-text-secondary">Solo borde</p>
               </Card>
               <Card variant="ghost">
                 <strong className="font-medium">Ghost</strong>
-                <p className="mt-1 text-sm text-neutral-600">Sin borde ni sombra</p>
+                <p className="mt-1 text-sm text-text-secondary">Sin borde ni sombra</p>
               </Card>
               <Card interactive variant="outline">
                 <strong className="font-medium">Interactive</strong>
-                <p className="mt-1 text-sm text-neutral-600">Respuesta visual al hover</p>
+                <p className="mt-1 text-sm text-text-secondary">Respuesta visual al hover</p>
               </Card>
               <Card padding="none" className="overflow-hidden">
-                <div className="bg-neutral-100 p-3 text-sm">Padding none</div>
+                <div className="bg-surface-subtle p-3 text-sm">Padding none</div>
               </Card>
               <Card padding="sm">Padding small</Card>
               <Card padding="md">Padding medium</Card>
@@ -296,17 +298,19 @@ export const DesignSystemPreviewPage = () => {
           <PreviewSection title="Modal">
             <div className="flex flex-col gap-6">
               <div>
-                <p className="mb-3 text-sm font-medium text-neutral-600">BÁSICO</p>
+                <p className="mb-3 text-sm font-medium text-text-secondary">BÁSICO</p>
                 <Button onClick={() => setOpenModal('basic')}>Abrir modal básico</Button>
               </div>
               <div>
-                <p className="mb-3 text-sm font-medium text-neutral-600">SIN CIERRE POR OVERLAY</p>
+                <p className="mb-3 text-sm font-medium text-text-secondary">
+                  SIN CIERRE POR OVERLAY
+                </p>
                 <Button variant="secondary" onClick={() => setOpenModal('protected')}>
                   Abrir modal protegido
                 </Button>
               </div>
               <div>
-                <p className="mb-3 text-sm font-medium text-neutral-600">
+                <p className="mb-3 text-sm font-medium text-text-secondary">
                   EJEMPLO REAL: CONFIRMACIÓN DE ELIMINACIÓN
                 </p>
                 <Button variant="danger" onClick={() => setOpenModal('delete')}>
@@ -382,6 +386,13 @@ export const DesignSystemPreviewPage = () => {
               <Button variant="secondary" onClick={handleLoadingToast}>
                 Mostrar loading
               </Button>
+            </div>
+          </PreviewSection>
+
+          <PreviewSection title="Preferences">
+            <div className="flex items-center gap-4">
+              <ThemeToggle />
+              <LanguageToggle />
             </div>
           </PreviewSection>
         </div>

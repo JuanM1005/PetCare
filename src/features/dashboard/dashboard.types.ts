@@ -1,39 +1,36 @@
 export type AppointmentStatus = 'scheduled' | 'confirmed' | 'pending';
+export type AppointmentReason = 'general' | 'vaccination' | 'postoperative' | 'weight';
 export type DashboardAvatarTone = 'primary' | 'neutral' | 'warning';
 export type DashboardMetricIcon = 'calendar' | 'completed' | 'pending' | 'availability';
-export type DashboardMetricVariant = 'default' | 'primary';
-export type DashboardSupportingTone = 'success' | 'warning';
+export type DashboardMetricId =
+  'today-appointments' | 'completed-appointments' | 'pending-appointments' | 'availability';
+export type DashboardSpecies = 'dog' | 'cat' | 'bird';
+export type DashboardBreed = 'goldenRetriever' | 'siamese' | 'parrot';
 
 export interface DashboardAppointment {
   avatarTone: DashboardAvatarTone;
   id: string;
   initials: string;
   patientName: string;
-  reason: string;
-  species: string;
+  reason: AppointmentReason;
+  species: DashboardSpecies;
   status: AppointmentStatus;
   time: string;
 }
 
 export interface DashboardMetric {
-  actionLabel?: string;
   actionTo?: string;
   icon: DashboardMetricIcon;
-  id: string;
-  label: string;
+  id: DashboardMetricId;
   progress?: number;
-  supportingText?: string;
-  supportingTone?: DashboardSupportingTone;
-  unit?: string;
   value: number | string;
-  variant?: DashboardMetricVariant;
 }
 
 export interface DashboardRecentPatient {
   avatarTone: DashboardAvatarTone;
-  breed: string;
+  breed: DashboardBreed;
   id: string;
   initials: string;
   name: string;
-  species: string;
+  species: DashboardSpecies;
 }

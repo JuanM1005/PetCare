@@ -1,0 +1,57 @@
+{
+  "greeting": "Buenos días, Dr. Carlos",
+  "summaryLabel": "Resumen de la clínica",
+  "widgetsLabel": "Widgets del dashboard",
+  "metrics": {
+    "today": "Citas de hoy",
+    "todaySupport": "+2 vs ayer",
+    "completed": "Atendidas",
+    "completedProgress": "{{progress}}% de citas atendidas",
+    "pending": "Pendientes",
+    "pendingSupport": "Siguiente en 15 min",
+    "availability": "Disponibilidad",
+    "spaces": "espacios",
+    "calendar": "Ver calendario →"
+  },
+  "appointments": {
+    "title": "Próximas citas",
+    "filter": "Filtrar próximas citas",
+    "viewAll": "Ver todas las citas de hoy",
+    "columns": {
+      "time": "Hora",
+      "patient": "Paciente",
+      "type": "Tipo",
+      "reason": "Motivo",
+      "status": "Estado"
+    },
+    "statuses": {
+      "scheduled": "Programada",
+      "confirmed": "Confirmada",
+      "pending": "Pendiente"
+    },
+    "reasons": {
+      "general": "Consulta general",
+      "vaccination": "Vacunación",
+      "postoperative": "Revisión postoperatoria",
+      "weight": "Control de peso"
+    }
+  },
+  "species": {
+    "dog": "Perro",
+    "cat": "Gato",
+    "bird": "Pájaro"
+  },
+  "breeds": {
+    "goldenRetriever": "Golden Retriever",
+    "siamese": "Siamés",
+    "parrot": "Loro"
+  },
+  "quickActions": {
+    "title": "Acciones rápidas",
+    "registerPatient": "Registrar paciente",
+    "createAppointment": "Crear cita",
+    "startConsultation": "Iniciar consulta",
+    "searchRecords": "Buscar historial"
+  },
+  "recentPatients": "Pacientes recientes"
+}

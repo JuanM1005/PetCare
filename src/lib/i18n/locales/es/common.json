@@ -1,0 +1,15 @@
+{
+  "language": {
+    "change": "Cambiar idioma a inglés",
+    "current": "Idioma actual: Español"
+  },
+  "theme": {
+    "dark": "Cambiar a tema oscuro",
+    "light": "Cambiar a tema claro"
+  },
+  "modal": {
+    "label": "Modal",
+    "close": "Cerrar modal"
+  },
+  "loading": "Cargando"
+}

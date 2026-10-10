@@ -22,15 +22,15 @@ export const Checkbox = ({
     <div className="flex flex-col gap-1.5">
       <label
         className={clsx(
-          'flex w-fit items-start gap-3 text-sm text-neutral-900',
-          disabled && 'cursor-not-allowed text-neutral-500',
+          'flex w-fit items-start gap-3 text-sm text-text-primary',
+          disabled && 'cursor-not-allowed text-text-muted',
         )}
         htmlFor={checkboxId}
       >
         <span className="relative mt-0.5 flex size-4 shrink-0">
           <input
             className={clsx(
-              'peer size-4 appearance-none rounded-sm border-hairline border-neutral-300 bg-neutral-0 transition-colors checked:border-primary-500 checked:bg-primary-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50',
+              'peer size-4 appearance-none rounded-sm border-hairline border-border-strong bg-surface transition-colors checked:border-primary-500 checked:bg-primary-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2 focus-visible:ring-offset-surface disabled:cursor-not-allowed disabled:opacity-50',
               error && 'border-danger',
               className,
             )}

@@ -32,6 +32,17 @@
   --color-warning: #d97706;
   --color-offline: #7a7a7a;
 
+  --color-app-background: var(--app-background);
+  --color-surface: var(--surface);
+  --color-surface-elevated: var(--surface-elevated);
+  --color-surface-subtle: var(--surface-subtle);
+  --color-surface-hover: var(--surface-hover);
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+  --color-text-muted: var(--text-muted);
+  --color-border: var(--border-color);
+  --color-border-strong: var(--border-strong-color);
+
   --radius-none: 0px;
   --radius-sm: 4px;
   --radius-md: 8px;
@@ -46,6 +57,29 @@
   --border-width-none: 0px;
   --border-width-hairline: 1px;
   --border-width-strong: 2px;
+  --app-background: var(--color-neutral-50);
+  --surface: var(--color-neutral-0);
+  --surface-elevated: var(--color-neutral-0);
+  --surface-subtle: var(--color-neutral-100);
+  --surface-hover: var(--color-neutral-100);
+  --text-primary: var(--color-neutral-900);
+  --text-secondary: var(--color-neutral-600);
+  --text-muted: var(--color-neutral-500);
+  --border-color: var(--color-neutral-200);
+  --border-strong-color: var(--color-neutral-300);
+}
+
+:root.dark {
+  --app-background: var(--color-neutral-950);
+  --surface: var(--color-neutral-900);
+  --surface-elevated: var(--color-neutral-800);
+  --surface-subtle: var(--color-neutral-800);
+  --surface-hover: var(--color-neutral-700);
+  --text-primary: var(--color-neutral-50);
+  --text-secondary: var(--color-neutral-300);
+  --text-muted: var(--color-neutral-400);
+  --border-color: var(--color-neutral-700);
+  --border-strong-color: var(--color-neutral-600);
 }
 
 @utility border-width-none {
@@ -134,8 +168,8 @@
 @layer base {
   html {
     min-height: 100%;
-    background-color: var(--color-neutral-50);
-    color: var(--color-neutral-900);
+    background-color: var(--app-background);
+    color: var(--text-primary);
     font-family: var(--font-sans);
     font-synthesis: none;
     text-rendering: optimizeLegibility;
@@ -150,5 +184,16 @@
 
   body {
     min-width: 320px;
+    background-color: var(--app-background);
+    color: var(--text-primary);
+    transition:
+      background-color 180ms ease,
+      color 180ms ease;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    body {
+      transition: none;
+    }
   }
 }

@@ -1,0 +1,57 @@
+{
+  "greeting": "Good morning, Dr. Carlos",
+  "summaryLabel": "Clinic overview",
+  "widgetsLabel": "Dashboard widgets",
+  "metrics": {
+    "today": "Today's appointments",
+    "todaySupport": "+2 vs yesterday",
+    "completed": "Completed",
+    "completedProgress": "{{progress}}% of appointments completed",
+    "pending": "Pending",
+    "pendingSupport": "Next in 15 min",
+    "availability": "Availability",
+    "spaces": "slots",
+    "calendar": "View calendar →"
+  },
+  "appointments": {
+    "title": "Upcoming appointments",
+    "filter": "Filter upcoming appointments",
+    "viewAll": "View all of today's appointments",
+    "columns": {
+      "time": "Time",
+      "patient": "Patient",
+      "type": "Type",
+      "reason": "Reason",
+      "status": "Status"
+    },
+    "statuses": {
+      "scheduled": "Scheduled",
+      "confirmed": "Confirmed",
+      "pending": "Pending"
+    },
+    "reasons": {
+      "general": "General consultation",
+      "vaccination": "Vaccination",
+      "postoperative": "Postoperative checkup",
+      "weight": "Weight check"
+    }
+  },
+  "species": {
+    "dog": "Dog",
+    "cat": "Cat",
+    "bird": "Bird"
+  },
+  "breeds": {
+    "goldenRetriever": "Golden Retriever",
+    "siamese": "Siamese",
+    "parrot": "Parrot"
+  },
+  "quickActions": {
+    "title": "Quick actions",
+    "registerPatient": "Register patient",
+    "createAppointment": "Create appointment",
+    "startConsultation": "Start consultation",
+    "searchRecords": "Search records"
+  },
+  "recentPatients": "Recent patients"
+}

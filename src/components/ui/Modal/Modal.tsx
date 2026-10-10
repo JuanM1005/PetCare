@@ -2,6 +2,7 @@ import { clsx } from 'clsx';
 import { useEffect, useId, useRef, useState } from 'react';
 import type { MouseEvent } from 'react';
 import { createPortal } from 'react-dom';
+import { useTranslation } from 'react-i18next';
 
 import { Card } from '../Card';
 import type { ModalProps } from './Modal.types';
@@ -36,6 +37,7 @@ export const Modal = ({
   showCloseButton = true,
   title,
 }: ModalProps) => {
+  const { t } = useTranslation('common');
   const dialogRef = useRef<HTMLDivElement>(null);
   const [shouldRender, setShouldRender] = useState(isOpen);
   const generatedId = useId();
@@ -173,7 +175,7 @@ export const Modal = ({
       <Card
         ref={dialogRef}
         aria-describedby={descriptionId}
-        aria-label={title ? undefined : 'Modal'}
+        aria-label={title ? undefined : t('modal.label')}
         aria-labelledby={titleId}
         aria-modal="true"
         className={clsx(
@@ -186,23 +188,26 @@ export const Modal = ({
         tabIndex={-1}
       >
         {title || description || showCloseButton ? (
-          <header className="flex shrink-0 items-start gap-4 border-b border-neutral-200 px-6 py-5">
+          <header className="flex shrink-0 items-start gap-4 border-b border-border px-6 py-5">
             <div className="min-w-0 flex-1">
               {title ? (
-                <h2 className="text-lg font-semibold text-neutral-900" id={titleId}>
+                <h2 className="text-lg font-semibold text-text-primary" id={titleId}>
                   {title}
                 </h2>
               ) : null}
               {description ? (
-                <p className={clsx('text-sm text-neutral-600', title && 'mt-2')} id={descriptionId}>
+                <p
+                  className={clsx('text-sm text-text-secondary', title && 'mt-2')}
+                  id={descriptionId}
+                >
                   {description}
                 </p>
               ) : null}
             </div>
             {showCloseButton ? (
               <button
-                aria-label="Cerrar modal"
-                className="inline-flex size-8 shrink-0 items-center justify-center rounded-md text-neutral-500 transition-colors hover:bg-neutral-100 hover:text-neutral-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2"
+                aria-label={t('modal.close')}
+                className="inline-flex size-8 shrink-0 items-center justify-center rounded-md text-text-muted transition-colors hover:bg-surface-hover hover:text-text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2 focus-visible:ring-offset-surface"
                 onClick={onClose}
                 type="button"
               >
@@ -219,10 +224,12 @@ export const Modal = ({
           </header>
         ) : null}
 
-        <div className="min-h-0 overflow-y-auto px-6 py-5 text-sm text-neutral-700">{children}</div>
+        <div className="min-h-0 overflow-y-auto px-6 py-5 text-sm text-text-secondary">
+          {children}
+        </div>
 
         {footer ? (
-          <footer className="flex shrink-0 flex-wrap justify-end gap-3 border-t border-neutral-200 px-6 py-4">
+          <footer className="flex shrink-0 flex-wrap justify-end gap-3 border-t border-border px-6 py-4">
             {footer}
           </footer>
         ) : null}
