@@ -97,6 +97,49 @@ Reuse the official PetCare logo asset instead of recreating it with CSS or icons
 
 ---
 
+## Technical Knowledge
+
+For frontend implementation, also consult:
+
+```text
+docs/knowledge/frontend-conventions.md
+```
+
+This file is the curated technical reference for PetCare. It is derived from the project's
+FullStack notes and adapts those concepts to the architecture and decisions currently approved
+for this repository.
+
+When available locally, Codex may also consult the extended source:
+
+```text
+docs/knowledge/Apuntes-FullStack.pdf
+```
+
+`Apuntes-FullStack.pdf` is optional local reference material. It may be intentionally excluded
+from Git with `.gitignore`, so remote clones, CI environments and other contributors must not
+depend on it being present.
+
+Source priority remains:
+
+1. `AGENTS.md`
+2. `docs/DESIGN.md`
+3. Existing PetCare architecture and established patterns
+4. `docs/knowledge/frontend-conventions.md`
+5. `docs/knowledge/Apuntes-FullStack.pdf`, only when available locally
+
+Rules for the extended notes:
+
+- use them to clarify concepts or reinforce an established implementation pattern;
+- do not treat tutorial examples as mandatory project architecture;
+- do not introduce a library merely because it appears in the notes;
+- do not revive superseded decisions such as Zod when PetCare currently uses Valibot;
+- do not introduce backend concerns while the repository remains frontend-first;
+- when the PDF conflicts with a higher-priority source, follow the higher-priority source;
+- the repository must continue to build and remain understandable without the local PDF.
+
+Do not introduce technologies from the notes unless they are already part of PetCare or the
+current requirement explicitly justifies them.
+
 ## 4. Architecture
 
 Use a feature-based architecture.
@@ -562,6 +605,9 @@ Example direction:
 ```
 
 Do not introduce TanStack Router.
+
+Use explicit catch-all routes for expected 404 navigation and React Router error boundaries or
+`errorElement` for unexpected route errors. Do not expose technical error details to end users.
 
 ---
 
