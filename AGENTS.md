@@ -44,6 +44,7 @@ Use:
 - @hookform/resolvers
 - clsx
 - react-icons
+- react-hot-toast → notifications
 - React Context API
 - React Portals
 - i18next
@@ -113,6 +114,28 @@ src/
 Create folders only when they have a real responsibility.
 
 Do not create empty architectural layers just because they look professional.
+
+Reusable UI components and reusable application layout components should live in their own
+directory. Application layout components belong in `src/components/layout/`.
+
+Example:
+
+```text
+components/ui/Button/
+├── Button.tsx
+├── Button.types.ts
+└── index.ts
+
+components/layout/Sidebar/
+├── Sidebar.tsx
+├── Sidebar.types.ts
+└── index.ts
+```
+
+Each component directory should expose a small explicit public API through `index.ts`.
+
+Use this structure for reusable components, but do not create unnecessary files when a component
+genuinely does not need them.
 
 Keep clear separation between:
 
@@ -613,6 +636,9 @@ Shared application components may include:
 - ConfirmDialog
 
 Before creating a new component, search for an existing equivalent.
+
+Use `react-hot-toast` for transient application notifications.
+Do not implement custom toast systems unless project requirements change.
 
 Do not create duplicate variants such as:
 

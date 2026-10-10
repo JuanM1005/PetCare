@@ -60,6 +60,77 @@
   border-width: var(--border-width-strong);
 }
 
+@keyframes modal-overlay-enter {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes modal-overlay-exit {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes modal-content-enter {
+  from {
+    opacity: 0;
+    transform: translateY(4px) scale(0.98);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes modal-content-exit {
+  from {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+
+  to {
+    opacity: 0;
+    transform: translateY(4px) scale(0.98);
+  }
+}
+
+@layer utilities {
+  .animate-modal-overlay-enter {
+    animation: modal-overlay-enter 180ms ease-out both;
+  }
+
+  .animate-modal-overlay-exit {
+    animation: modal-overlay-exit 180ms ease-in both;
+  }
+
+  .animate-modal-content-enter {
+    animation: modal-content-enter 180ms ease-out both;
+  }
+
+  .animate-modal-content-exit {
+    animation: modal-content-exit 180ms ease-in both;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .animate-modal-overlay-enter,
+    .animate-modal-overlay-exit,
+    .animate-modal-content-enter,
+    .animate-modal-content-exit {
+      animation: none;
+    }
+  }
+}
+
 @layer base {
   html {
     min-height: 100%;

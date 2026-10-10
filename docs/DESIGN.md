@@ -85,24 +85,17 @@ PetCare
 
 The primary visual identity uses blue.
 
-The official PetCare logo uses a veterinary paw symbol inside a circular blue
-composition.
+Sidebar branding uses a blue rounded-square icon with a white paw alongside the
+PetCare wordmark and the `CLÍNICA VETERINARIA` subtitle.
 
-Production asset:
+The provided PetCare PNG logo is reserved for the application favicon:
 
 ```text
-src/assets/brand/petcare-logo.png
+public/favicon.png
 ```
 
-Always reuse the official logo asset.
-
-Do not recreate the PetCare logo using:
-
-- CSS;
-- emoji;
-- generic paw icons;
-- react-icons;
-- third-party icons.
+Do not use the PNG logo inside the Sidebar or other navigation components unless
+the design specification changes.
 
 Generic veterinary icons may still be used elsewhere in the interface where
 appropriate.
