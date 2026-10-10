@@ -11,5 +11,20 @@
     "label": "Modal",
     "close": "Close modal"
   },
+  "errors": {
+    "notFound": {
+      "code": "404",
+      "title": "Page not found",
+      "description": "It looks like this page wandered away from the clinic.\nCheck the address or return to the dashboard.",
+      "backToDashboard": "Back to dashboard",
+      "goBack": "Go back"
+    },
+    "route": {
+      "title": "Something went wrong",
+      "description": "We couldn't load this section.\nYou can try again or return to the dashboard.",
+      "retry": "Try again",
+      "backToDashboard": "Back to dashboard"
+    }
+  },
   "loading": "Loading"
 }

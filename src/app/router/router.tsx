@@ -3,6 +3,8 @@ import { createBrowserRouter, Navigate } from 'react-router';
 import { App } from '@/app/App';
 import { DesignSystemPreviewPage } from '@/app/dev/DesignSystemPreviewPage';
 import { SidebarPreviewPage } from '@/app/dev/SidebarPreviewPage';
+import { NotFoundPage } from '@/app/pages/NotFoundPage';
+import { RouteErrorPage } from '@/app/pages/RouteErrorPage';
 import { AppLayout } from '@/components/layout';
 import { DashboardPage } from '@/features/dashboard';
 
@@ -10,6 +12,7 @@ export const router = createBrowserRouter([
   {
     path: '/',
     Component: App,
+    errorElement: <RouteErrorPage fullViewport />,
     children: [
       {
         index: true,
@@ -25,10 +28,32 @@ export const router = createBrowserRouter([
       },
       {
         Component: AppLayout,
+        errorElement: <RouteErrorPage fullViewport />,
         children: [
           {
-            path: 'dashboard',
-            Component: DashboardPage,
+            errorElement: <RouteErrorPage />,
+            children: [
+              {
+                path: 'dashboard',
+                Component: DashboardPage,
+                handle: {
+                  header: {
+                    subtitleKey: 'header.subtitle',
+                    titleKey: 'header.title',
+                  },
+                },
+              },
+              {
+                path: '*',
+                Component: NotFoundPage,
+                handle: {
+                  header: {
+                    subtitleKey: 'header.notFound.subtitle',
+                    titleKey: 'header.notFound.title',
+                  },
+                },
+              },
+            ],
           },
         ],
       },

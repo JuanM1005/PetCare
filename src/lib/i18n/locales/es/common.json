@@ -11,5 +11,20 @@
     "label": "Modal",
     "close": "Cerrar modal"
   },
+  "errors": {
+    "notFound": {
+      "code": "404",
+      "title": "Página no encontrada",
+      "description": "Parece que esta página se salió de la clínica.\nVerifica la dirección o vuelve al panel principal.",
+      "backToDashboard": "Volver al panel",
+      "goBack": "Regresar"
+    },
+    "route": {
+      "title": "Algo salió mal",
+      "description": "No pudimos cargar esta sección.\nPuedes intentarlo nuevamente o volver al panel principal.",
+      "retry": "Intentar nuevamente",
+      "backToDashboard": "Volver al panel"
+    }
+  },
   "loading": "Cargando"
 }

@@ -4,7 +4,11 @@
     "subtitle": "Today's clinic operations overview",
     "search": "Search",
     "searchPlaceholder": "Search patients...",
-    "notifications": "Notifications"
+    "notifications": "Notifications",
+    "notFound": {
+      "title": "Page not found",
+      "subtitle": "The requested route does not exist"
+    }
   },
   "sidebar": {
     "clinic": "Veterinary clinic",
