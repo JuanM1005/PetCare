@@ -1,15 +1,12 @@
 import { useTranslation } from 'react-i18next';
 import { Outlet, useMatches } from 'react-router';
 
+import type { AppRouteHeaderMetadata } from '@/app/router/router.types';
+
 import { Header } from '../Header';
 import { Sidebar } from '../Sidebar';
 
-interface HeaderRouteMetadata {
-  subtitleKey?: string;
-  titleKey: string;
-}
-
-const getHeaderRouteMetadata = (handle: unknown): HeaderRouteMetadata | undefined => {
+const getHeaderRouteMetadata = (handle: unknown): AppRouteHeaderMetadata | undefined => {
   if (!handle || typeof handle !== 'object' || !('header' in handle)) {
     return undefined;
   }
@@ -34,14 +31,14 @@ const getHeaderRouteMetadata = (handle: unknown): HeaderRouteMetadata | undefine
 };
 
 export const AppLayout = () => {
-  const { t } = useTranslation('layout');
+  const { t } = useTranslation(['layout', 'dashboard', 'patients']);
   const matches = useMatches();
-  const headerMetadata = matches.reduce<HeaderRouteMetadata | undefined>(
+  const headerMetadata = matches.reduce<AppRouteHeaderMetadata | undefined>(
     (currentMetadata, match) => getHeaderRouteMetadata(match.handle) ?? currentMetadata,
     undefined,
   );
-  const title = t(headerMetadata?.titleKey ?? 'header.title');
-  const subtitle = t(headerMetadata?.subtitleKey ?? 'header.subtitle');
+  const title = t(headerMetadata?.titleKey ?? 'dashboard:header.title');
+  const subtitle = t(headerMetadata?.subtitleKey ?? 'dashboard:header.subtitle');
 
   return (
     <div className="flex h-dvh min-h-dvh w-full bg-app-background">

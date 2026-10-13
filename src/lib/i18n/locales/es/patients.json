@@ -1,0 +1,69 @@
+{
+  "header": {
+    "title": "Pacientes",
+    "subtitle": "Gestión de pacientes registrados"
+  },
+  "toolbar": {
+    "searchLabel": "Buscar pacientes",
+    "searchPlaceholder": "Buscar en pacientes..."
+  },
+  "filters": {
+    "species": {
+      "label": "Filtrar por especie",
+      "all": "Todas las especies"
+    },
+    "status": {
+      "label": "Filtrar por estado",
+      "all": "Todos los estados"
+    }
+  },
+  "columns": {
+    "patient": "Paciente",
+    "owner": "Propietario",
+    "species": "Especie",
+    "age": "Edad",
+    "lastVisit": "Última visita",
+    "status": "Estado",
+    "action": "Acción"
+  },
+  "species": {
+    "dog": "Perro",
+    "cat": "Gato",
+    "bird": "Ave",
+    "other": "Otro"
+  },
+  "status": {
+    "active": "Activo",
+    "inactive": "Inactivo"
+  },
+  "age": {
+    "years_one": "{{count}} año",
+    "years_other": "{{count}} años",
+    "months_one": "{{count}} mes",
+    "months_other": "{{count}} meses"
+  },
+  "lastVisit": {
+    "empty": "Sin visitas"
+  },
+  "sorting": {
+    "sortBy": "Ordenar por {{column}}"
+  },
+  "actions": {
+    "register": "Registrar paciente",
+    "viewPatient": "Ver expediente de {{name}}",
+    "availableSoon": "Disponible en una próxima etapa"
+  },
+  "pagination": {
+    "label": "Paginación de pacientes",
+    "summary": "Mostrando {{from}}–{{to}} de {{count}} pacientes",
+    "previous": "Anterior",
+    "next": "Siguiente",
+    "current": "Página {{current}} de {{total}}"
+  },
+  "empty": {
+    "title": "No existen pacientes",
+    "description": "Los pacientes registrados aparecerán aquí.",
+    "filteredTitle": "No se encontraron pacientes",
+    "filteredDescription": "Prueba con otra búsqueda o modifica los filtros."
+  }
+}

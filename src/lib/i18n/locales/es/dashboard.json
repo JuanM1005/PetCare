@@ -1,4 +1,8 @@
 {
+  "header": {
+    "title": "Panel",
+    "subtitle": "Resumen operativo de la clínica para hoy"
+  },
   "greeting": "Buenos días, Dr. Carlos",
   "summaryLabel": "Resumen de la clínica",
   "widgetsLabel": "Widgets del dashboard",

@@ -1,0 +1,69 @@
+{
+  "header": {
+    "title": "Patients",
+    "subtitle": "Manage registered patients"
+  },
+  "toolbar": {
+    "searchLabel": "Search patients",
+    "searchPlaceholder": "Search patients..."
+  },
+  "filters": {
+    "species": {
+      "label": "Filter by species",
+      "all": "All species"
+    },
+    "status": {
+      "label": "Filter by status",
+      "all": "All statuses"
+    }
+  },
+  "columns": {
+    "patient": "Patient",
+    "owner": "Owner",
+    "species": "Species",
+    "age": "Age",
+    "lastVisit": "Last visit",
+    "status": "Status",
+    "action": "Action"
+  },
+  "species": {
+    "dog": "Dog",
+    "cat": "Cat",
+    "bird": "Bird",
+    "other": "Other"
+  },
+  "status": {
+    "active": "Active",
+    "inactive": "Inactive"
+  },
+  "age": {
+    "years_one": "{{count}} year",
+    "years_other": "{{count}} years",
+    "months_one": "{{count}} month",
+    "months_other": "{{count}} months"
+  },
+  "lastVisit": {
+    "empty": "No visits"
+  },
+  "sorting": {
+    "sortBy": "Sort by {{column}}"
+  },
+  "actions": {
+    "register": "Register patient",
+    "viewPatient": "View {{name}}'s record",
+    "availableSoon": "Available in a future stage"
+  },
+  "pagination": {
+    "label": "Patients pagination",
+    "summary": "Showing {{from}}–{{to}} of {{count}} patients",
+    "previous": "Previous",
+    "next": "Next",
+    "current": "Page {{current}} of {{total}}"
+  },
+  "empty": {
+    "title": "No patients yet",
+    "description": "Registered patients will appear here.",
+    "filteredTitle": "No patients found",
+    "filteredDescription": "Try another search or adjust the filters."
+  }
+}

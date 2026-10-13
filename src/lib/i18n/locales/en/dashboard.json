@@ -1,4 +1,8 @@
 {
+  "header": {
+    "title": "Dashboard",
+    "subtitle": "Today's clinic operational overview"
+  },
   "greeting": "Good morning, Dr. Carlos",
   "summaryLabel": "Clinic overview",
   "widgetsLabel": "Dashboard widgets",

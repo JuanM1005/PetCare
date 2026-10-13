@@ -257,10 +257,7 @@ When an external or caught value is not known, begin with `unknown` and narrow i
 Prefer explicit domain unions:
 
 ```ts
-export type AppointmentStatus =
-  | 'scheduled'
-  | 'confirmed'
-  | 'pending';
+export type AppointmentStatus = 'scheduled' | 'confirmed' | 'pending';
 ```
 
 Use interfaces for clear object contracts when appropriate:
@@ -468,13 +465,7 @@ Keep substantial validation schemas outside presentation components.
 Prefer modular Valibot imports:
 
 ```ts
-import {
-  email,
-  minLength,
-  object,
-  pipe,
-  string,
-} from 'valibot';
+import { email, minLength, object, pipe, string } from 'valibot';
 ```
 
 Valibot supports deriving TypeScript types from schemas; prefer deriving/reusing types when it

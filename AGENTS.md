@@ -632,6 +632,9 @@ Use it when functionality such as the following is required:
 
 Do not introduce it for simple two-column layouts or small static lists.
 
+`@tanstack/react-table` is currently used for complex management listings such as the Patients
+table.
+
 ---
 
 ## 16. Styling
