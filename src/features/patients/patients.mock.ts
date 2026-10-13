@@ -1,17 +1,19 @@
-import type { PatientListItem } from './patients.types';
+import type { PatientDetailItem, PatientListItem } from './patients.types';
+
+const luna: PatientListItem = {
+  id: 'patient-001',
+  name: 'Luna',
+  initials: 'LU',
+  species: 'dog',
+  breed: 'Golden Retriever',
+  birthDate: '2022-04-18',
+  owner: { id: 'owner-001', name: 'Mariana Torres' },
+  lastVisit: '2026-10-12',
+  status: 'active',
+};
 
 export const patients: PatientListItem[] = [
-  {
-    id: 'patient-001',
-    name: 'Luna',
-    initials: 'LU',
-    species: 'dog',
-    breed: 'Golden Retriever',
-    birthDate: '2021-04-18',
-    owner: { id: 'owner-001', name: 'Mariana Torres' },
-    lastVisit: '2026-10-08',
-    status: 'active',
-  },
+  luna,
   {
     id: 'patient-002',
     name: 'Rocky',
@@ -264,5 +266,43 @@ export const patients: PatientListItem[] = [
     owner: { id: 'owner-024', name: 'Beatriz Molina' },
     lastVisit: '2026-09-07',
     status: 'active',
+  },
+];
+
+export const patientDetails: PatientDetailItem[] = [
+  {
+    ...luna,
+    activeMedications: [
+      {
+        id: 'medication-001',
+        name: 'NexGard Spectra',
+        type: 'antiparasitic',
+        frequency: 'monthly',
+      },
+      {
+        id: 'medication-002',
+        name: 'Suplemento Articular',
+        type: 'chondroprotective',
+        frequency: 'daily',
+      },
+    ],
+    alerts: [
+      {
+        id: 'alert-001',
+        title: 'penicillinAllergy',
+        description: 'avoidPenicillin',
+        severity: 'danger',
+      },
+    ],
+    lastConsultation: {
+      id: 'consultation-001',
+      date: '2026-10-12',
+      veterinarianName: 'Dr. Carlos López',
+      title: 'annualReview',
+      summary: 'goodGeneralCondition',
+    },
+    nextAppointment: null,
+    sex: 'female',
+    weightKg: 24.6,
   },
 ];

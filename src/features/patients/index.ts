@@ -1,2 +1,14 @@
+export { PatientDetailPage } from './PatientDetailPage';
 export { PatientsPage } from './PatientsPage';
-export type { PatientListItem, PatientStatus, Species } from './patients.types';
+export type {
+  PatientAlert,
+  PatientAlertSeverity,
+  PatientAppointmentSummary,
+  PatientConsultationSummary,
+  PatientDetailItem,
+  PatientListItem,
+  PatientMedicationSummary,
+  PatientSex,
+  PatientStatus,
+  Species,
+} from './patients.types';

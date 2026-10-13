@@ -1,7 +1,8 @@
 {
   "header": {
     "title": "Pacientes",
-    "subtitle": "Gestión de pacientes registrados"
+    "subtitle": "Gestión de pacientes registrados",
+    "detailSubtitle": "Expediente clínico del paciente"
   },
   "toolbar": {
     "searchLabel": "Buscar pacientes",
@@ -65,5 +66,81 @@
     "description": "Los pacientes registrados aparecerán aquí.",
     "filteredTitle": "No se encontraron pacientes",
     "filteredDescription": "Prueba con otra búsqueda o modifica los filtros."
+  },
+  "detail": {
+    "actions": {
+      "backToPatients": "Volver a pacientes",
+      "edit": "Editar datos",
+      "scheduleAppointment": "Agendar cita",
+      "newConsultation": "Nueva consulta",
+      "viewFullReport": "Ver reporte completo →",
+      "scheduleNow": "Agendar ahora"
+    },
+    "labels": {
+      "species": "Especie",
+      "breed": "Raza",
+      "age": "Edad",
+      "sex": "Sexo",
+      "weight": "Peso",
+      "owner": "Propietario"
+    },
+    "sex": {
+      "male": "Macho",
+      "female": "Hembra"
+    },
+    "weightValue": "{{value}} kg",
+    "medicalAlert": "Alerta médica",
+    "alerts": {
+      "titles": {
+        "penicillinAllergy": "Alergia a penicilina"
+      },
+      "descriptions": {
+        "avoidPenicillin": "Evitar antibióticos con penicilina."
+      }
+    },
+    "tabs": {
+      "label": "Secciones del expediente del paciente",
+      "summary": "Resumen",
+      "history": "Historial clínico",
+      "appointments": "Citas"
+    },
+    "sections": {
+      "lastConsultation": "Última consulta",
+      "nextAppointment": "Próxima cita",
+      "activeMedication": "Medicación activa"
+    },
+    "consultation": {
+      "metadata": "{{date}} · {{veterinarian}}",
+      "titles": {
+        "annualReview": "Revisión general y vacunación anual."
+      },
+      "summaries": {
+        "goodGeneralCondition": "Paciente se presenta en buen estado general. Se aplica vacuna anual y se mantienen las indicaciones preventivas."
+      },
+      "empty": "No hay consultas registradas."
+    },
+    "appointment": {
+      "emptyTitle": "Sin citas programadas",
+      "emptyDescription": "No hay visitas futuras agendadas.",
+      "reasons": {
+        "generalConsultation": "Consulta general"
+      }
+    },
+    "medication": {
+      "description": "{{type}} · {{frequency}}",
+      "types": {
+        "antiparasitic": "Antiparasitario",
+        "chondroprotective": "Condroprotector"
+      },
+      "frequencies": {
+        "monthly": "Mensual",
+        "daily": "Diario"
+      },
+      "empty": "No hay medicación activa."
+    },
+    "notFound": {
+      "title": "Paciente no encontrado",
+      "description": "No pudimos encontrar el paciente solicitado."
+    }
   }
 }

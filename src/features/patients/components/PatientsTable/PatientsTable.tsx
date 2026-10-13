@@ -15,11 +15,13 @@ import type { ColumnDef, FilterFn } from '@tanstack/react-table';
 import { useMemo } from 'react';
 import { FiChevronDown, FiChevronRight, FiChevronUp, FiChevronsDown } from 'react-icons/fi';
 import { useTranslation } from 'react-i18next';
+import { Link } from 'react-router';
 
 import { Badge, Button, Card } from '@/components/ui';
 import { getSupportedLanguage, languageLocales } from '@/lib/i18n';
 
 import type { PatientListItem, PatientStatus } from '../../patients.types';
+import { getPatientAgeParts } from '../../patients.utils';
 import { PatientAvatar } from '../PatientAvatar';
 import type { PatientsTableProps } from './PatientsTable.types';
 
@@ -55,24 +57,6 @@ const exactValueFilter: FilterFn<typeof patientTableFeatures, PatientListItem> =
   return row.getValue(columnId) === filterValue;
 };
 
-const getAgeParts = (birthDate: string) => {
-  const today = new Date();
-  const birth = new Date(`${birthDate}T00:00:00`);
-  let years = today.getFullYear() - birth.getFullYear();
-  let months = today.getMonth() - birth.getMonth();
-
-  if (today.getDate() < birth.getDate()) {
-    months -= 1;
-  }
-
-  if (months < 0) {
-    years -= 1;
-    months += 12;
-  }
-
-  return { months: Math.max(months, 0), years: Math.max(years, 0) };
-};
-
 export const PatientsTable = ({
   onPaginationChange,
   onSortingChange,
@@ -103,7 +87,7 @@ export const PatientsTable = ({
         sortFn: 'text',
         cell: ({ row }) => (
           <div className="flex min-w-48 items-center gap-3">
-            <PatientAvatar initials={row.original.initials} />
+            <PatientAvatar initials={row.original.initials} name={row.original.name} />
             <div className="min-w-0">
               <p className="truncate text-sm font-semibold text-text-primary">
                 {row.original.name}
@@ -140,7 +124,7 @@ export const PatientsTable = ({
         header: t('columns.age'),
         enableSorting: false,
         cell: ({ getValue }) => {
-          const { months, years } = getAgeParts(getValue<string>());
+          const { months, years } = getPatientAgeParts(getValue<string>());
 
           return (
             <span className="whitespace-nowrap text-sm text-text-secondary">
@@ -187,15 +171,13 @@ export const PatientsTable = ({
         header: t('columns.action'),
         enableSorting: false,
         cell: ({ row }) => (
-          <button
+          <Link
             aria-label={t('actions.viewPatient', { name: row.original.name })}
-            className="flex size-9 items-center justify-center rounded-md text-text-muted opacity-60 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 disabled:cursor-not-allowed"
-            disabled
-            title={t('actions.availableSoon')}
-            type="button"
+            className="flex size-9 items-center justify-center rounded-md text-text-muted transition-colors hover:bg-surface-hover hover:text-primary-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500"
+            to={`/patients/${row.original.id}`}
           >
             <FiChevronRight aria-hidden="true" className="size-4" />
-          </button>
+          </Link>
         ),
       },
     ],

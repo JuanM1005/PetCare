@@ -7,7 +7,7 @@ import { NotFoundPage } from '@/app/pages/NotFoundPage';
 import { RouteErrorPage } from '@/app/pages/RouteErrorPage';
 import { AppLayout } from '@/components/layout';
 import { DashboardPage } from '@/features/dashboard';
-import { PatientsPage } from '@/features/patients';
+import { PatientDetailPage, PatientsPage } from '@/features/patients';
 
 import type { AppRouteHandle } from './router.types';
 
@@ -52,6 +52,16 @@ export const router = createBrowserRouter([
                 handle: {
                   header: {
                     subtitleKey: 'patients:header.subtitle',
+                    titleKey: 'patients:header.title',
+                  },
+                } satisfies AppRouteHandle,
+              },
+              {
+                path: 'patients/:patientId',
+                Component: PatientDetailPage,
+                handle: {
+                  header: {
+                    subtitleKey: 'patients:header.detailSubtitle',
                     titleKey: 'patients:header.title',
                   },
                 } satisfies AppRouteHandle,

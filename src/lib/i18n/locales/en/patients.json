@@ -1,7 +1,8 @@
 {
   "header": {
     "title": "Patients",
-    "subtitle": "Manage registered patients"
+    "subtitle": "Manage registered patients",
+    "detailSubtitle": "Patient clinical record"
   },
   "toolbar": {
     "searchLabel": "Search patients",
@@ -65,5 +66,81 @@
     "description": "Registered patients will appear here.",
     "filteredTitle": "No patients found",
     "filteredDescription": "Try another search or adjust the filters."
+  },
+  "detail": {
+    "actions": {
+      "backToPatients": "Back to patients",
+      "edit": "Edit details",
+      "scheduleAppointment": "Schedule appointment",
+      "newConsultation": "New consultation",
+      "viewFullReport": "View full report →",
+      "scheduleNow": "Schedule now"
+    },
+    "labels": {
+      "species": "Species",
+      "breed": "Breed",
+      "age": "Age",
+      "sex": "Sex",
+      "weight": "Weight",
+      "owner": "Owner"
+    },
+    "sex": {
+      "male": "Male",
+      "female": "Female"
+    },
+    "weightValue": "{{value}} kg",
+    "medicalAlert": "Medical alert",
+    "alerts": {
+      "titles": {
+        "penicillinAllergy": "Penicillin allergy"
+      },
+      "descriptions": {
+        "avoidPenicillin": "Avoid antibiotics containing penicillin."
+      }
+    },
+    "tabs": {
+      "label": "Patient record sections",
+      "summary": "Summary",
+      "history": "Clinical history",
+      "appointments": "Appointments"
+    },
+    "sections": {
+      "lastConsultation": "Last consultation",
+      "nextAppointment": "Next appointment",
+      "activeMedication": "Active medication"
+    },
+    "consultation": {
+      "metadata": "{{date}} · {{veterinarian}}",
+      "titles": {
+        "annualReview": "General checkup and annual vaccination."
+      },
+      "summaries": {
+        "goodGeneralCondition": "The patient is in good general condition. The annual vaccine was administered and preventive guidance remains in place."
+      },
+      "empty": "No consultations recorded."
+    },
+    "appointment": {
+      "emptyTitle": "No appointments scheduled",
+      "emptyDescription": "There are no future visits scheduled.",
+      "reasons": {
+        "generalConsultation": "General consultation"
+      }
+    },
+    "medication": {
+      "description": "{{type}} · {{frequency}}",
+      "types": {
+        "antiparasitic": "Antiparasitic",
+        "chondroprotective": "Chondroprotective"
+      },
+      "frequencies": {
+        "monthly": "Monthly",
+        "daily": "Daily"
+      },
+      "empty": "No active medication."
+    },
+    "notFound": {
+      "title": "Patient not found",
+      "description": "We couldn't find the requested patient."
+    }
   }
 }
