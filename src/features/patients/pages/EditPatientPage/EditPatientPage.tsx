@@ -45,7 +45,7 @@ export const EditPatientPage = () => {
           <h2 className="text-xl font-semibold text-text-primary">{t('detail.notFound.title')}</h2>
           <p className="mt-2 text-sm text-text-secondary">{t('detail.notFound.description')}</p>
           <Link
-            className="mt-6 inline-flex min-h-9 items-center justify-center gap-2 rounded-md bg-primary-500 px-4 py-2 text-sm font-medium text-neutral-0 transition-colors hover:bg-primary-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2 focus-visible:ring-offset-surface"
+            className="mt-6 inline-flex min-h-9 items-center justify-center gap-2 rounded-md bg-primary-action px-4 py-2 text-sm font-medium text-neutral-0 transition-colors hover:bg-primary-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2 focus-visible:ring-offset-surface"
             to="/patients"
           >
             <FiArrowLeft aria-hidden="true" className="size-4" />

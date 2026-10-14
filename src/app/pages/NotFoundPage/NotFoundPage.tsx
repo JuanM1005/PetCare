@@ -5,7 +5,7 @@ import { Link, useNavigate } from 'react-router';
 import { Button, Card } from '@/components/ui';
 
 const dashboardLinkClassName =
-  'inline-flex min-h-9 items-center justify-center rounded-md bg-primary-500 px-4 py-2 text-sm font-medium text-neutral-0 transition-colors hover:bg-primary-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2 focus-visible:ring-offset-surface';
+  'inline-flex min-h-9 items-center justify-center rounded-md bg-primary-action px-4 py-2 text-sm font-medium text-neutral-0 transition-colors hover:bg-primary-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2 focus-visible:ring-offset-surface';
 
 export const NotFoundPage = () => {
   const navigate = useNavigate();

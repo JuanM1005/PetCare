@@ -3,10 +3,6 @@
     "change": "Switch language to Spanish",
     "current": "Current language: English"
   },
-  "theme": {
-    "dark": "Switch to dark theme",
-    "light": "Switch to light theme"
-  },
   "modal": {
     "label": "Modal",
     "close": "Close modal"

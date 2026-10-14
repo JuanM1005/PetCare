@@ -56,7 +56,7 @@ export const Sidebar = ({ className }: SidebarProps) => {
         <div className={clsx('flex items-center', isCollapsed ? 'justify-center' : 'gap-4')}>
           <span
             aria-label={isCollapsed ? 'PetCare' : undefined}
-            className="flex size-14 shrink-0 items-center justify-center rounded-xl bg-primary-500 text-neutral-0 shadow-sm"
+            className="flex size-14 shrink-0 items-center justify-center rounded-xl bg-primary-action text-neutral-0 shadow-sm"
             role={isCollapsed ? 'img' : undefined}
           >
             <FaPaw aria-hidden="true" className="size-6" />
@@ -78,7 +78,7 @@ export const Sidebar = ({ className }: SidebarProps) => {
             isCollapsed ? `Dr. Carlos Lopez, ${t('doctorRole')}, ${t('disconnected')}` : undefined
           }
         >
-          <span className="flex size-12 shrink-0 items-center justify-center rounded-lg bg-primary-500 font-semibold text-neutral-0">
+          <span className="flex size-12 shrink-0 items-center justify-center rounded-lg bg-primary-action font-semibold text-neutral-0">
             CL
           </span>
           {!isCollapsed ? (
@@ -122,7 +122,7 @@ export const Sidebar = ({ className }: SidebarProps) => {
                       'group flex min-h-12 items-center rounded-lg text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2 focus-visible:ring-offset-surface motion-reduce:transition-none',
                       isCollapsed ? 'justify-center px-2' : 'gap-3 px-3',
                       isActive
-                        ? 'bg-primary-500 text-neutral-0 shadow-sm'
+                        ? 'bg-primary-action text-neutral-0 shadow-sm'
                         : 'text-text-secondary hover:bg-surface-hover hover:text-text-primary',
                     )
                   }
@@ -210,18 +210,21 @@ export const Sidebar = ({ className }: SidebarProps) => {
               <FiUser aria-hidden="true" className="size-5 shrink-0" />
               {!isCollapsed ? <span>{t('profile')}</span> : null}
             </button>
-            <button
+            <NavLink
               aria-label={t('settings')}
-              className={clsx(
-                accountButtonClassName,
-                isCollapsed ? 'size-10 justify-center' : 'gap-3 px-2',
-              )}
+              className={({ isActive }) =>
+                clsx(
+                  accountButtonClassName,
+                  isCollapsed ? 'size-10 justify-center' : 'gap-3 px-2',
+                  isActive && 'bg-primary-50 text-primary-700',
+                )
+              }
               title={isCollapsed ? t('settings') : undefined}
-              type="button"
+              to="/settings"
             >
               <FiSettings aria-hidden="true" className="size-5 shrink-0" />
               {!isCollapsed ? <span>{t('settings')}</span> : null}
-            </button>
+            </NavLink>
             <button
               aria-label={t('logout')}
               className={clsx(

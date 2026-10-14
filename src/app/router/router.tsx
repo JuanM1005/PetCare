@@ -16,6 +16,7 @@ import {
   PatientSummaryPage,
   RegisterPatientPage,
 } from '@/features/patients';
+import { SettingsPage } from '@/features/settings';
 
 import type { AppRouteHandle } from './router.types';
 
@@ -107,6 +108,16 @@ export const router = createBrowserRouter([
                     Component: PatientAppointmentsPage,
                   },
                 ],
+              },
+              {
+                path: 'settings',
+                Component: SettingsPage,
+                handle: {
+                  header: {
+                    subtitleKey: 'settings:header.subtitle',
+                    titleKey: 'settings:header.title',
+                  },
+                } satisfies AppRouteHandle,
               },
               {
                 path: '*',

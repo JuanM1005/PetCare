@@ -4,7 +4,7 @@ import { Spinner } from '../Spinner';
 import type { ButtonProps, ButtonSize, ButtonVariant } from './Button.types';
 
 const variantClasses: Record<ButtonVariant, string> = {
-  primary: 'bg-primary-500 text-neutral-0 hover:bg-primary-600',
+  primary: 'bg-primary-action text-neutral-0 hover:bg-primary-700',
   secondary:
     'border-hairline border-border-strong bg-surface text-text-primary hover:bg-surface-hover',
   danger: 'bg-danger text-neutral-0 hover:opacity-90',

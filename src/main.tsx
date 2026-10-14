@@ -3,7 +3,7 @@ import { createRoot } from 'react-dom/client';
 import { RouterProvider } from 'react-router';
 
 import { router } from '@/app/router/router';
-import { ThemeProvider } from '@/context/theme';
+import { AccentProvider } from '@/context/accent';
 import '@/lib/i18n';
 import '@/styles/global.css';
 
@@ -15,8 +15,8 @@ if (!rootElement) {
 
 createRoot(rootElement).render(
   <StrictMode>
-    <ThemeProvider>
+    <AccentProvider>
       <RouterProvider router={router} />
-    </ThemeProvider>
+    </AccentProvider>
   </StrictMode>,
 );

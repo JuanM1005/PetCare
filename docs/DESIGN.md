@@ -83,7 +83,8 @@ Product name:
 PetCare
 ```
 
-The primary visual identity uses blue.
+The default primary visual identity uses PetCare Blue. Approved accent presets may personalize
+interactive emphasis without changing the clear clinical foundation.
 
 Sidebar branding uses a blue rounded-square icon with a white paw alongside the
 PetCare wordmark and the `CLÍNICA VETERINARIA` subtitle.
@@ -106,7 +107,12 @@ appropriate.
 
 The following values come from the approved PetCare color foundation.
 
-## Primary
+## Primary Accent
+
+PetCare exposes the selected accent through the `primary-50` to `primary-900` scale. PetCare Blue
+is the default, and the selected preset is applied through `data-accent` on the root HTML element.
+
+### Blue — default
 
 | Token | Hex |
 | --- | --- |
@@ -132,6 +138,61 @@ Primary colors are intended for elements such as:
 
 Do not introduce arbitrary blue values when an existing PetCare primary token
 already represents the intended design.
+
+### Teal
+
+| Token | Hex |
+| --- | --- |
+| `primary-900` | `#042F2E` |
+| `primary-800` | `#134E4A` |
+| `primary-700` | `#115E59` |
+| `primary-600` | `#0F766E` |
+| `primary-500` | `#14B8A6` |
+| `primary-400` | `#2DD4BF` |
+| `primary-300` | `#5EEAD4` |
+| `primary-200` | `#99F6E4` |
+| `primary-100` | `#CCFBF1` |
+| `primary-50` | `#F0FDFA` |
+
+### Indigo
+
+| Token | Hex |
+| --- | --- |
+| `primary-900` | `#312E81` |
+| `primary-800` | `#3730A3` |
+| `primary-700` | `#4338CA` |
+| `primary-600` | `#4F46E5` |
+| `primary-500` | `#6366F1` |
+| `primary-400` | `#818CF8` |
+| `primary-300` | `#A5B4FC` |
+| `primary-200` | `#C7D2FE` |
+| `primary-100` | `#E0E7FF` |
+| `primary-50` | `#EEF2FF` |
+
+### Violet
+
+| Token | Hex |
+| --- | --- |
+| `primary-900` | `#4C1D95` |
+| `primary-800` | `#5B21B6` |
+| `primary-700` | `#6D28D9` |
+| `primary-600` | `#7C3AED` |
+| `primary-500` | `#8B5CF6` |
+| `primary-400` | `#A78BFA` |
+| `primary-300` | `#C4B5FD` |
+| `primary-200` | `#DDD6FE` |
+| `primary-100` | `#EDE9FE` |
+| `primary-50` | `#F5F3FF` |
+
+Approved accents may change primary buttons, active navigation, links, active tabs, focus rings,
+primary badges and selected elements. Primary actions with white text use the approved 600 tone
+to preserve contrast.
+
+Accent selection lives in Settings and is represented as:
+
+```html
+<html data-accent="blue">
+```
 
 ---
 
@@ -178,6 +239,8 @@ The current PetCare semantic colors are:
 | `offline` | `#7A7A7A` |
 
 Semantic colors communicate meaning.
+
+Success, danger, warning and offline tokens never change with the selected accent.
 
 They should not be used merely as decoration.
 
@@ -461,7 +524,7 @@ General hierarchy should be created using:
 
 Do not use multiple unrelated colors merely to establish text hierarchy.
 
-Primary blue may be used when text itself represents:
+The current primary accent may be used when text itself represents:
 
 - an interactive state;
 - an active navigation item;
@@ -554,9 +617,9 @@ Instead, expose the PetCare value through the theme/design-token layer.
 
 # 15. Surfaces
 
-PetCare supports Light and Dark themes. Light preserves the approved visual appearance, while
-Dark reuses the existing primary, neutral and semantic foundations through a small semantic token
-layer for application backgrounds, surfaces, text and borders.
+PetCare uses one permanently light visual foundation. Dark mode is not part of the current product
+direction. Accent customization changes interactive emphasis only; it does not change application
+backgrounds, neutral surfaces, text hierarchy or semantic clinical states.
 
 The current color foundation provides:
 
@@ -585,8 +648,8 @@ floating dramatically above it.
 Exact surface combinations will be defined by approved component and screen
 designs.
 
-Components should consume semantic surface, text and border tokens so both themes remain coherent
-without duplicating theme-specific color rules in every component.
+Components should consume semantic surface, text and border tokens so the clear visual foundation
+remains coherent without hardcoded colors in individual components.
 
 ---
 
@@ -706,8 +769,9 @@ Exact dimensions and behavior should follow the approved Figma screens.
 
 Do not assume dimensions that have not yet been defined.
 
-The Header includes search, `ThemeToggle`, notifications and `LanguageToggle`. It does not use a
-globe control. The Dashboard greeting places the localized current date and time on its right side.
+The Header includes search, notifications and `LanguageToggle`. Accent customization belongs in
+Settings, not in the Header. The Dashboard greeting places the localized current date and time on
+its right side.
 
 Connection and synchronization status belongs to the Sidebar. Operational quick actions belong to
 the Dashboard and should not be duplicated in the Sidebar or greeting area.

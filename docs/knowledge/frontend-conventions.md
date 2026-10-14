@@ -207,7 +207,7 @@ PetCare must not grow a single giant `GlobalContext`.
 
 Examples of reasonable focused contexts:
 
-- theme;
+- accent preference;
 - authenticated user/session later;
 - another truly cross-cutting concern when justified.
 
@@ -215,27 +215,27 @@ Recommended structure:
 
 ```text
 context/
-└── theme/
-    ├── ThemeContext.ts
-    ├── ThemeProvider.tsx
-    ├── useThemeContext.ts
+└── accent/
+    ├── AccentContext.ts
+    ├── AccentProvider.tsx
+    ├── useAccentContext.ts
     └── index.ts
 ```
 
 The context itself should normally be initialized with `undefined`:
 
 ```ts
-export const ThemeContext = createContext<ThemeContextValue | undefined>(undefined);
+export const AccentContext = createContext<AccentContextValue | undefined>(undefined);
 ```
 
 Expose a safe custom hook that validates provider usage:
 
 ```ts
-export const useThemeContext = (): ThemeContextValue => {
-  const context = useContext(ThemeContext);
+export const useAccentContext = (): AccentContextValue => {
+  const context = useContext(AccentContext);
 
   if (context === undefined) {
-    throw new Error('useThemeContext must be used inside ThemeProvider');
+    throw new Error('useAccentContext must be used inside AccentProvider');
   }
 
   return context;
@@ -555,17 +555,14 @@ Translation resources are static/local to support the offline-first direction.
 
 Do not hardcode user-facing text in new production UI when it belongs in i18n.
 
-### Theme
+### Appearance and accent
 
-PetCare supports:
+PetCare uses a single light visual foundation. Personalization is limited to approved primary
+accent presets managed by the focused `AccentProvider`; PetCare Blue is the default.
 
-- light;
-- dark.
-
-Use the focused Theme Context already implemented.
-
-Prefer semantic design tokens over spreading hardcoded theme-specific colors throughout
-components.
+Components should continue consuming primary and semantic design tokens. Success, warning,
+danger and offline colors remain stable regardless of the selected accent. Do not introduce dark
+mode or system-theme detection unless the product decision changes explicitly.
 
 ### Notifications
 

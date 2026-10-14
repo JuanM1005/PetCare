@@ -1,7 +1,7 @@
 import { FiBell, FiSearch } from 'react-icons/fi';
 import { useTranslation } from 'react-i18next';
 
-import { LanguageToggle, ThemeToggle } from '@/components/ui';
+import { LanguageToggle } from '@/components/ui';
 
 import type { HeaderProps } from './Header.types';
 
@@ -42,7 +42,6 @@ export const Header = ({
           />
         </label>
 
-        <ThemeToggle />
         <button
           aria-label={t('header.notifications')}
           className={iconButtonClassName}

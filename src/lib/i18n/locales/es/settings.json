@@ -1,0 +1,19 @@
+{
+  "header": {
+    "title": "Configuración",
+    "subtitle": "Personaliza tu experiencia en PetCare"
+  },
+  "appearance": {
+    "title": "Apariencia",
+    "description": "Personaliza el color de énfasis de PetCare.",
+    "interfaceColor": "Color de la interfaz",
+    "accents": {
+      "blue": "Azul PetCare",
+      "teal": "Turquesa",
+      "indigo": "Índigo",
+      "violet": "Violeta"
+    },
+    "selectAccent": "Seleccionar {{accent}} como color de la interfaz",
+    "explanation": "El color de énfasis se aplica a botones, enlaces y elementos seleccionados. Los estados clínicos mantienen sus colores originales."
+  }
+}

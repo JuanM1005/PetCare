@@ -14,7 +14,6 @@ import {
   Select,
   Spinner,
   Textarea,
-  ThemeToggle,
 } from '@/components/ui';
 
 interface PreviewSectionProps {
@@ -391,7 +390,6 @@ export const DesignSystemPreviewPage = () => {
 
           <PreviewSection title="Preferences">
             <div className="flex items-center gap-4">
-              <ThemeToggle />
               <LanguageToggle />
             </div>
           </PreviewSection>

@@ -1,0 +1,19 @@
+{
+  "header": {
+    "title": "Settings",
+    "subtitle": "Customize your PetCare experience"
+  },
+  "appearance": {
+    "title": "Appearance",
+    "description": "Customize PetCare's accent color.",
+    "interfaceColor": "Interface color",
+    "accents": {
+      "blue": "PetCare Blue",
+      "teal": "Teal",
+      "indigo": "Indigo",
+      "violet": "Violet"
+    },
+    "selectAccent": "Select {{accent}} as the interface color",
+    "explanation": "The accent color applies to buttons, links, and selected elements. Clinical states keep their original colors."
+  }
+}

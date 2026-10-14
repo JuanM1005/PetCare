@@ -69,9 +69,10 @@ Use `i18next` with `react-i18next` as the official internationalization solution
 currently supports Spanish and English, and translations must use statically imported resources
 to preserve offline-first compatibility.
 
-Light and dark appearance is managed by a focused `ThemeProvider`. Prefer semantic design tokens
-for surfaces, text and borders instead of scattering hardcoded theme-specific colors throughout
-components.
+PetCare uses a clear visual foundation with a configurable primary accent managed by
+`AccentProvider`. The approved presets are Blue, Teal, Indigo and Violet, with PetCare Blue as
+the default. Semantic success, warning, danger and offline colors never change with the accent.
+Do not introduce dark mode unless the product decision changes explicitly.
 
 ---
 

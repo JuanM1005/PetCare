@@ -58,7 +58,7 @@ export const PatientsToolbar = ({
       />
 
       <Link
-        className="inline-flex min-h-9 items-center justify-center gap-2 rounded-md bg-primary-500 px-4 py-2 text-sm font-medium text-neutral-0 transition-colors hover:bg-primary-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2 focus-visible:ring-offset-surface"
+        className="inline-flex min-h-9 items-center justify-center gap-2 rounded-md bg-primary-action px-4 py-2 text-sm font-medium text-neutral-0 transition-colors hover:bg-primary-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2 focus-visible:ring-offset-surface"
         to="/patients/register"
       >
         <FiUserPlus aria-hidden="true" className="size-4" />

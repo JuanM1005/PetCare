@@ -19,4 +19,3 @@ export { Spinner } from './Spinner';
 export type { SpinnerProps, SpinnerSize, SpinnerVariant } from './Spinner';
 export { Textarea } from './Textarea';
 export type { TextareaProps } from './Textarea';
-export { ThemeToggle } from './ThemeToggle';
