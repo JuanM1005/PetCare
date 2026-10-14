@@ -78,7 +78,7 @@ docs/references/Stitch/
 ```
 
 `appointments-agenda.jpg` guides the global `/appointments` daily schedule. The separate
-`appointment-register.jpg` reference is reserved for the future `/appointments/register` flow.
+`appointment-register.jpg` reference guides the `/appointments/register` scheduling flow.
 
 These references must be inspected before implementing the corresponding UI.
 

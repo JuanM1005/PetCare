@@ -1,0 +1,1 @@
+export { RegisterAppointmentPage } from './RegisterAppointmentPage';

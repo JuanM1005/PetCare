@@ -39,6 +39,35 @@ export const getDateValue = (date: Date): string => {
   return `${year}-${month}-${day}`;
 };
 
+export const isValidDateValue = (value: string): boolean => {
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(value)) {
+    return false;
+  }
+
+  const date = getLocalDate(value);
+  const [year, month, day] = value.split('-').map(Number);
+
+  return (
+    !Number.isNaN(date.getTime()) &&
+    date.getFullYear() === year &&
+    date.getMonth() === month - 1 &&
+    date.getDate() === day
+  );
+};
+
+/**
+ * Normaliza una fecha externa antes de utilizarla como valor inicial del formulario.
+ * Las fechas inválidas o anteriores al mínimo permitido vuelven al valor seguro indicado.
+ */
+export const getInitialRegisterDate = (
+  requestedDate: string | null,
+  minimumDate: string,
+): string => {
+  return requestedDate && isValidDateValue(requestedDate) && requestedDate >= minimumDate
+    ? requestedDate
+    : minimumDate;
+};
+
 /**
  * Genera las semanas visibles de un mes usando el lunes como primer día.
  * Los espacios vacíos conservan la alineación sin convertir días de otros meses en selecciones.
@@ -59,27 +88,48 @@ export const getCalendarMonthDays = (month: Date): Array<CalendarDay | null> => 
   return [...leadingDays, ...monthDays, ...Array.from<null>({ length: trailingCount }).fill(null)];
 };
 
-/**
- * Calcula los espacios disponibles de la agenda mock a partir del horario clínico.
- * La regla es provisional: no contempla disponibilidad por veterinario ni consultorio.
- */
-export const getAvailableSlots = (
-  sourceAppointments: readonly Appointment[],
-  date: string,
-): string[] => {
+export interface AvailabilityOptions {
+  durationMinutes?: number;
+  veterinarianId?: string;
+}
+
+export const getScheduleStartTimes = (durationMinutes: number): string[] => {
   const openingMinutes = timeToMinutes(CLINIC_SCHEDULE.openingTime);
   const closingMinutes = timeToMinutes(CLINIC_SCHEDULE.closingTime);
-  const blockingAppointments = sourceAppointments.filter(
-    (appointment) => appointment.date === date && appointment.status !== 'cancelled',
-  );
   const slots: string[] = [];
 
   for (
     let slotStart = openingMinutes;
-    slotStart + CLINIC_SCHEDULE.slotMinutes <= closingMinutes;
+    slotStart + durationMinutes <= closingMinutes;
     slotStart += CLINIC_SCHEDULE.slotMinutes
   ) {
-    const slotEnd = slotStart + CLINIC_SCHEDULE.slotMinutes;
+    slots.push(minutesToTime(slotStart));
+  }
+
+  return slots;
+};
+
+/**
+ * Calcula horarios de inicio válidos según fecha, duración y veterinario opcional.
+ * Las citas canceladas no bloquean intervalos y la regla sigue siendo una aproximación
+ * frontend sin consultorios, descansos ni horarios individuales.
+ */
+export const getAvailableSlots = (
+  sourceAppointments: readonly Appointment[],
+  date: string,
+  options: AvailabilityOptions = {},
+): string[] => {
+  const durationMinutes = options.durationMinutes ?? CLINIC_SCHEDULE.slotMinutes;
+  const blockingAppointments = sourceAppointments.filter(
+    (appointment) =>
+      appointment.date === date &&
+      appointment.status !== 'cancelled' &&
+      (!options.veterinarianId || appointment.veterinarianId === options.veterinarianId),
+  );
+
+  return getScheduleStartTimes(durationMinutes).filter((slot) => {
+    const slotStart = timeToMinutes(slot);
+    const slotEnd = slotStart + durationMinutes;
     const isOccupied = blockingAppointments.some((appointment) => {
       const appointmentStart = timeToMinutes(appointment.startTime);
       const appointmentEnd = appointmentStart + appointment.durationMinutes;
@@ -87,12 +137,8 @@ export const getAvailableSlots = (
       return appointmentStart < slotEnd && appointmentEnd > slotStart;
     });
 
-    if (!isOccupied) {
-      slots.push(minutesToTime(slotStart));
-    }
-  }
-
-  return slots;
+    return !isOccupied;
+  });
 };
 
 export const filterAppointments = (

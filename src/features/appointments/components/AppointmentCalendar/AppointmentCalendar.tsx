@@ -12,7 +12,8 @@ import type { AppointmentCalendarProps } from './AppointmentCalendar.types';
 const weekdayKeys = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday'];
 
 export const AppointmentCalendar = ({
-  datesWithAppointments,
+  datesWithAppointments = [],
+  isDateDisabled,
   onDateSelect,
   selectedDate,
 }: AppointmentCalendarProps) => {
@@ -81,9 +82,12 @@ export const AppointmentCalendar = ({
           const isSelected = day.value === selectedDate;
           const isToday = day.value === today;
           const hasAppointments = datesWithAppointments.includes(day.value);
+          const isDisabled = isDateDisabled?.(day.value) ?? false;
           const accessibleLabel = `${t('calendar.selectDate', {
             date: dateLabelFormatter.format(day.date),
-          })}${hasAppointments ? `. ${t('calendar.hasAppointments')}` : ''}`;
+          })}${hasAppointments ? `. ${t('calendar.hasAppointments')}` : ''}${
+            isDisabled ? `. ${t('calendar.unavailableDate')}` : ''
+          }`;
 
           return (
             <button
@@ -96,7 +100,9 @@ export const AppointmentCalendar = ({
                   ? 'bg-primary-action text-neutral-0'
                   : 'text-text-secondary hover:bg-surface-hover hover:text-text-primary',
                 isToday && !isSelected && 'ring-1 ring-primary-500 text-primary-700',
+                isDisabled && 'cursor-not-allowed opacity-35 hover:bg-transparent',
               )}
+              disabled={isDisabled}
               key={day.value}
               onClick={() => onDateSelect(day.value)}
               type="button"

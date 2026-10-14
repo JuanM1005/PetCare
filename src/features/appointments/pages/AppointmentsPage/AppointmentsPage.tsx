@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { FiCalendar, FiPlus } from 'react-icons/fi';
 import { useTranslation } from 'react-i18next';
+import { useNavigate } from 'react-router';
 
 import { Button, Card } from '@/components/ui';
 import { patients } from '@/features/patients/patients.mock';
@@ -27,6 +28,7 @@ const initialFilters: AppointmentFilterState = {
 };
 
 export const AppointmentsPage = () => {
+  const navigate = useNavigate();
   const [selectedDate, setSelectedDate] = useState(initialAppointmentDate);
   const [filters, setFilters] = useState<AppointmentFilterState>(initialFilters);
   const { i18n, t } = useTranslation('appointments');
@@ -59,7 +61,10 @@ export const AppointmentsPage = () => {
           <FiCalendar aria-hidden="true" className="size-4 text-primary-600" />
           <time dateTime={selectedDate}>{selectedDateLabel}</time>
         </div>
-        <Button disabled title={t('page.newAppointmentUnavailable')}>
+        <Button
+          onClick={() => navigate(`/appointments/register?date=${selectedDate}`)}
+          type="button"
+        >
           <FiPlus aria-hidden="true" className="size-4" />
           {t('page.newAppointment')}
         </Button>

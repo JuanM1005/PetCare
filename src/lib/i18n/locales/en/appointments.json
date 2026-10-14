@@ -1,11 +1,11 @@
 {
   "header": {
     "title": "Appointments",
-    "subtitle": "Clinical schedule and daily availability"
+    "subtitle": "Clinical schedule and daily availability",
+    "registerSubtitle": "Schedule a new appointment"
   },
   "page": {
     "newAppointment": "New appointment",
-    "newAppointmentUnavailable": "Appointment creation will be available soon",
     "selectedDate": "Selected date: {{date}}"
   },
   "card": {
@@ -54,6 +54,7 @@
     "nextMonth": "Next month",
     "selectDate": "Select {{date}}",
     "hasAppointments": "Has scheduled appointments",
+    "unavailableDate": "Date unavailable",
     "weekdays": {
       "monday": "M",
       "tuesday": "T",
@@ -73,5 +74,76 @@
       "title": "We couldn't find appointments with the selected filters.",
       "description": "Adjust or clear the filters to show the schedule again."
     }
+  },
+  "register": {
+    "title": "New appointment",
+    "description": "Schedule veterinary care",
+    "sections": {
+      "patient": "Patient",
+      "details": "Appointment details",
+      "dateTime": "Date and time"
+    },
+    "patient": {
+      "label": "Patient",
+      "placeholder": "Select a patient",
+      "change": "Change patient"
+    },
+    "fields": {
+      "type": {
+        "label": "Reason for appointment",
+        "placeholder": "Select a reason"
+      },
+      "veterinarian": {
+        "label": "Veterinarian",
+        "placeholder": "Select a veterinarian"
+      },
+      "duration": {
+        "label": "Duration",
+        "option": "{{count}} min"
+      },
+      "notes": {
+        "label": "Optional notes",
+        "placeholder": "Add relevant details for the appointment..."
+      },
+      "date": {
+        "label": "Date"
+      },
+      "startTime": {
+        "label": "Available times"
+      }
+    },
+    "availability": {
+      "available": "Times available",
+      "unavailable": "No availability",
+      "selectVeterinarian": "Select a veterinarian to view available times.",
+      "noSlots": "No available times for this date."
+    },
+    "timeSlot": {
+      "availableLabel": "Select {{time}} time slot",
+      "unavailableLabel": "{{time}} time slot unavailable"
+    },
+    "actions": {
+      "cancel": "Cancel",
+      "create": "Schedule appointment",
+      "createSubmitting": "Validating appointment...",
+      "edit": "Save changes",
+      "editSubmitting": "Validating changes..."
+    },
+    "validation": {
+      "patientRequired": "Select a patient.",
+      "patientInvalid": "Select a valid patient.",
+      "typeRequired": "Select the reason for the appointment.",
+      "typeInvalid": "Select a valid reason.",
+      "veterinarianRequired": "Select a veterinarian.",
+      "veterinarianInvalid": "Select a valid veterinarian.",
+      "durationRequired": "Select the duration.",
+      "durationInvalid": "Select a valid duration.",
+      "notesMaxLength": "Notes cannot exceed 500 characters.",
+      "dateRequired": "Select a date.",
+      "dateInvalid": "Select a valid date.",
+      "datePast": "The date cannot be earlier than today.",
+      "startTimeRequired": "Select an available time."
+    },
+    "submitValidated": "Appointment data validated. Persistence will be integrated later."
   }
 }

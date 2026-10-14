@@ -1,11 +1,11 @@
 {
   "header": {
     "title": "Citas",
-    "subtitle": "Agenda clínica y disponibilidad del día"
+    "subtitle": "Agenda clínica y disponibilidad del día",
+    "registerSubtitle": "Programar nueva cita"
   },
   "page": {
     "newAppointment": "Nueva cita",
-    "newAppointmentUnavailable": "La creación de citas estará disponible próximamente",
     "selectedDate": "Fecha seleccionada: {{date}}"
   },
   "card": {
@@ -54,6 +54,7 @@
     "nextMonth": "Mes siguiente",
     "selectDate": "Seleccionar {{date}}",
     "hasAppointments": "Tiene citas programadas",
+    "unavailableDate": "Fecha no disponible",
     "weekdays": {
       "monday": "L",
       "tuesday": "M",
@@ -73,5 +74,76 @@
       "title": "No encontramos citas con los filtros seleccionados.",
       "description": "Ajusta o limpia los filtros para volver a mostrar la agenda."
     }
+  },
+  "register": {
+    "title": "Nueva cita",
+    "description": "Programa una atención veterinaria",
+    "sections": {
+      "patient": "Paciente",
+      "details": "Detalles de la cita",
+      "dateTime": "Fecha y hora"
+    },
+    "patient": {
+      "label": "Paciente",
+      "placeholder": "Selecciona un paciente",
+      "change": "Cambiar paciente"
+    },
+    "fields": {
+      "type": {
+        "label": "Motivo de la consulta",
+        "placeholder": "Selecciona un motivo"
+      },
+      "veterinarian": {
+        "label": "Veterinario",
+        "placeholder": "Selecciona un veterinario"
+      },
+      "duration": {
+        "label": "Duración",
+        "option": "{{count}} min"
+      },
+      "notes": {
+        "label": "Notas opcionales",
+        "placeholder": "Añade detalles relevantes para la consulta..."
+      },
+      "date": {
+        "label": "Fecha"
+      },
+      "startTime": {
+        "label": "Horarios disponibles"
+      }
+    },
+    "availability": {
+      "available": "Horario disponible",
+      "unavailable": "Sin disponibilidad",
+      "selectVeterinarian": "Selecciona un veterinario para consultar los horarios disponibles.",
+      "noSlots": "No hay horarios disponibles para esta fecha."
+    },
+    "timeSlot": {
+      "availableLabel": "Seleccionar horario {{time}}",
+      "unavailableLabel": "Horario {{time}} no disponible"
+    },
+    "actions": {
+      "cancel": "Cancelar",
+      "create": "Agendar cita",
+      "createSubmitting": "Validando cita...",
+      "edit": "Guardar cambios",
+      "editSubmitting": "Validando cambios..."
+    },
+    "validation": {
+      "patientRequired": "Selecciona un paciente.",
+      "patientInvalid": "Selecciona un paciente válido.",
+      "typeRequired": "Selecciona el motivo de la consulta.",
+      "typeInvalid": "Selecciona un motivo válido.",
+      "veterinarianRequired": "Selecciona un veterinario.",
+      "veterinarianInvalid": "Selecciona un veterinario válido.",
+      "durationRequired": "Selecciona la duración.",
+      "durationInvalid": "Selecciona una duración válida.",
+      "notesMaxLength": "Las notas no pueden superar 500 caracteres.",
+      "dateRequired": "Selecciona una fecha.",
+      "dateInvalid": "Selecciona una fecha válida.",
+      "datePast": "La fecha no puede ser anterior a hoy.",
+      "startTimeRequired": "Selecciona un horario disponible."
+    },
+    "submitValidated": "Datos de la cita validados. La persistencia se integrará posteriormente."
   }
 }

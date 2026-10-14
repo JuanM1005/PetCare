@@ -52,10 +52,13 @@ export const PatientDetailLayout = () => {
             <FiEdit3 aria-hidden="true" className="size-4" />
             {t('detail.actions.edit')}
           </Link>
-          <Button disabled title={t('actions.availableSoon')} variant="secondary">
+          <Link
+            className={secondaryLinkClassName}
+            to={`/appointments/register?patientId=${patient.id}`}
+          >
             <FiCalendar aria-hidden="true" className="size-4" />
             {t('detail.actions.scheduleAppointment')}
-          </Button>
+          </Link>
           <Button disabled title={t('actions.availableSoon')}>
             <FiPlus aria-hidden="true" className="size-4" />
             {t('detail.actions.newConsultation')}
