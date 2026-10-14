@@ -950,3 +950,45 @@ After implementation report:
 - any remaining limitation.
 
 Do not provide long tutorials unless requested.
+
+## JSDoc y comentarios
+
+Por el momento, JSDoc y los comentarios técnicos del proyecto se escriben en español para
+facilitar la colaboración del equipo.
+
+Los identificadores de código permanecen en inglés, siguiendo las convenciones actuales:
+
+- component names;
+- functions;
+- hooks;
+- types;
+- interfaces;
+- variables;
+- files and folders.
+
+Usa JSDoc selectivamente cuando ayude a explicar comportamientos, contratos o decisiones que no
+sean evidentes al leer el código.
+
+Buenos candidatos:
+
+- hooks reutilizables con comportamiento no trivial;
+- utilidades compartidas;
+- helpers de integración para React Router u otras librerías;
+- transformaciones de datos;
+- tipos de dominio cuyo significado pueda resultar ambiguo;
+- funciones públicas con restricciones, efectos secundarios o casos límite;
+- lógica offline/sincronización (cuando se implemente).
+
+No documentes mecánicamente todos los componentes o funciones ni agregues comentarios que
+simplemente repitan el código. Esta decisión puede migrar a inglés posteriormente.
+
+Example:
+
+    /**
+     * Obtiene la metadata del Header definida en la ruta activa más específica.
+     *
+     * Mantiene el conocimiento de React Router fuera del componente presentacional Header.
+     */
+    export const useRouteHeader = () => {
+      // ...
+    };

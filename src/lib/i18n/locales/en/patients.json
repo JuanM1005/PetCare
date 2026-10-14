@@ -142,5 +142,74 @@
       "title": "Patient not found",
       "description": "We couldn't find the requested patient."
     }
+  },
+  "history": {
+    "filters": {
+      "period": {
+        "label": "Period",
+        "options": {
+          "3m": "Last 3 months",
+          "6m": "Last 6 months",
+          "12m": "Last 12 months",
+          "all": "Full history"
+        }
+      },
+      "recordType": {
+        "label": "Record type",
+        "options": {
+          "all": "All types"
+        }
+      },
+      "veterinarian": {
+        "label": "Veterinarian",
+        "any": "Any veterinarian"
+      }
+    },
+    "recordTypes": {
+      "consultation": "Consultation",
+      "vaccination": "Vaccination",
+      "checkup": "Checkup",
+      "procedure": "Procedure"
+    },
+    "status": {
+      "completed": "Completed",
+      "pending": "Pending"
+    },
+    "records": {
+      "title": "Medical records",
+      "metadata": "{{date}} · {{veterinarian}}",
+      "titles": {
+        "generalConsultation": "General consultation",
+        "annualVaccination": "Annual vaccination",
+        "weightCheck": "Weight check",
+        "dentalProcedure": "Dental procedure"
+      },
+      "summaries": {
+        "generalConsultation": "The patient is in good general condition. Ears, eyes and teeth were checked with no relevant findings.",
+        "annualVaccination": "The annual booster was administered and preventive guidance was updated.",
+        "weightCheck": "A gradual weight reduction was recorded and the current nutrition plan remains in place.",
+        "dentalProcedure": "Preventive dental cleaning was completed without complications and recovery was favorable."
+      }
+    },
+    "empty": {
+      "title": "No records found",
+      "description": "There are no clinical records matching the selected filters."
+    },
+    "aside": {
+      "label": "Clinical history summary"
+    },
+    "alerts": {
+      "title": "Clinical alerts",
+      "empty": "There are no active clinical alerts."
+    },
+    "weight": {
+      "title": "Weight evolution",
+      "current": "Current weight",
+      "change": {
+        "decrease": "↓ {{value}} kg since {{month}}",
+        "increase": "↑ {{value}} kg since {{month}}",
+        "stable": "No change since {{month}}"
+      }
+    }
   }
 }

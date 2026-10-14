@@ -32,7 +32,7 @@ export const PatientSummaryCard = ({ patient }: PatientSummaryCardProps) => {
               </Badge>
             </div>
 
-            <dl className="mt-5 grid grid-cols-2 gap-x-6 gap-y-4 sm:grid-cols-3 xl:grid-cols-6">
+            <dl className="mt-5 grid grid-cols-2 gap-x-6 gap-y-4 xl:grid-cols-3 2xl:grid-cols-6">
               <div>
                 <dt className="text-xs font-semibold uppercase text-text-muted">
                   {t('detail.labels.species')}
@@ -75,7 +75,9 @@ export const PatientSummaryCard = ({ patient }: PatientSummaryCardProps) => {
                 </dt>
                 <dd className="mt-1 flex items-center gap-1.5 text-sm font-medium text-primary-600">
                   <FiUser aria-hidden="true" className="size-4 shrink-0" />
-                  <span className="truncate" title={patient.owner.name}>{patient.owner.name}</span>
+                  <span className="truncate" title={patient.owner.name}>
+                    {patient.owner.name}
+                  </span>
                 </dd>
               </div>
             </dl>

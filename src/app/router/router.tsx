@@ -7,7 +7,12 @@ import { NotFoundPage } from '@/app/pages/NotFoundPage';
 import { RouteErrorPage } from '@/app/pages/RouteErrorPage';
 import { AppLayout } from '@/components/layout';
 import { DashboardPage } from '@/features/dashboard';
-import { PatientDetailPage, PatientsPage } from '@/features/patients';
+import {
+  PatientDetailLayout,
+  PatientHistoryPage,
+  PatientsPage,
+  PatientSummaryPage,
+} from '@/features/patients';
 
 import type { AppRouteHandle } from './router.types';
 
@@ -58,13 +63,23 @@ export const router = createBrowserRouter([
               },
               {
                 path: 'patients/:patientId',
-                Component: PatientDetailPage,
+                Component: PatientDetailLayout,
                 handle: {
                   header: {
                     subtitleKey: 'patients:header.detailSubtitle',
                     titleKey: 'patients:header.title',
                   },
                 } satisfies AppRouteHandle,
+                children: [
+                  {
+                    index: true,
+                    Component: PatientSummaryPage,
+                  },
+                  {
+                    path: 'history',
+                    Component: PatientHistoryPage,
+                  },
+                ],
               },
               {
                 path: '*',

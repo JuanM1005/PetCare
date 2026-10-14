@@ -142,5 +142,74 @@
       "title": "Paciente no encontrado",
       "description": "No pudimos encontrar el paciente solicitado."
     }
+  },
+  "history": {
+    "filters": {
+      "period": {
+        "label": "Periodo",
+        "options": {
+          "3m": "Últimos 3 meses",
+          "6m": "Últimos 6 meses",
+          "12m": "Últimos 12 meses",
+          "all": "Todo el historial"
+        }
+      },
+      "recordType": {
+        "label": "Tipo de registro",
+        "options": {
+          "all": "Todos los tipos"
+        }
+      },
+      "veterinarian": {
+        "label": "Veterinario",
+        "any": "Cualquier veterinario"
+      }
+    },
+    "recordTypes": {
+      "consultation": "Consulta",
+      "vaccination": "Vacunación",
+      "checkup": "Control",
+      "procedure": "Procedimiento"
+    },
+    "status": {
+      "completed": "Completado",
+      "pending": "Pendiente"
+    },
+    "records": {
+      "title": "Registros médicos",
+      "metadata": "{{date}} · {{veterinarian}}",
+      "titles": {
+        "generalConsultation": "Consulta general",
+        "annualVaccination": "Vacunación anual",
+        "weightCheck": "Control de peso",
+        "dentalProcedure": "Procedimiento dental"
+      },
+      "summaries": {
+        "generalConsultation": "Paciente en buen estado general. Se revisaron oídos, ojos y dentadura sin hallazgos relevantes.",
+        "annualVaccination": "Se aplicó el refuerzo anual y se actualizaron las indicaciones preventivas.",
+        "weightCheck": "Se registró una reducción gradual de peso y se mantiene el plan de alimentación actual.",
+        "dentalProcedure": "Se realizó limpieza dental preventiva sin complicaciones y con recuperación favorable."
+      }
+    },
+    "empty": {
+      "title": "No se encontraron registros",
+      "description": "No hay registros clínicos que coincidan con los filtros seleccionados."
+    },
+    "aside": {
+      "label": "Resumen del historial clínico"
+    },
+    "alerts": {
+      "title": "Alertas clínicas",
+      "empty": "No hay alertas clínicas activas."
+    },
+    "weight": {
+      "title": "Evolución del peso",
+      "current": "Peso actual",
+      "change": {
+        "decrease": "↓ {{value}} kg desde {{month}}",
+        "increase": "↑ {{value}} kg desde {{month}}",
+        "stable": "Sin cambios desde {{month}}"
+      }
+    }
   }
 }
