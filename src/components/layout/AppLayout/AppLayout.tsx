@@ -31,7 +31,7 @@ const getHeaderRouteMetadata = (handle: unknown): AppRouteHeaderMetadata | undef
 };
 
 export const AppLayout = () => {
-  const { t } = useTranslation(['layout', 'dashboard', 'patients', 'settings']);
+  const { t } = useTranslation(['layout', 'dashboard', 'appointments', 'patients', 'settings']);
   const matches = useMatches();
   const headerMetadata = matches.reduce<AppRouteHeaderMetadata | undefined>(
     (currentMetadata, match) => getHeaderRouteMetadata(match.handle) ?? currentMetadata,

@@ -1,9 +1,11 @@
 import commonEn from './locales/en/common.json';
+import appointmentsEn from './locales/en/appointments.json';
 import dashboardEn from './locales/en/dashboard.json';
 import layoutEn from './locales/en/layout.json';
 import patientsEn from './locales/en/patients.json';
 import settingsEn from './locales/en/settings.json';
 import commonEs from './locales/es/common.json';
+import appointmentsEs from './locales/es/appointments.json';
 import dashboardEs from './locales/es/dashboard.json';
 import layoutEs from './locales/es/layout.json';
 import patientsEs from './locales/es/patients.json';
@@ -19,6 +21,7 @@ export const defaultNS = 'common';
 
 export const resources = {
   en: {
+    appointments: appointmentsEn,
     common: commonEn,
     dashboard: dashboardEn,
     layout: layoutEn,
@@ -26,6 +29,7 @@ export const resources = {
     settings: settingsEn,
   },
   es: {
+    appointments: appointmentsEs,
     common: commonEs,
     dashboard: dashboardEs,
     layout: layoutEs,

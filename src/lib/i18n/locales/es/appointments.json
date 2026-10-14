@@ -1,0 +1,77 @@
+{
+  "header": {
+    "title": "Citas",
+    "subtitle": "Agenda clínica y disponibilidad del día"
+  },
+  "page": {
+    "newAppointment": "Nueva cita",
+    "newAppointmentUnavailable": "La creación de citas estará disponible próximamente",
+    "selectedDate": "Fecha seleccionada: {{date}}"
+  },
+  "card": {
+    "duration": "{{count}} min"
+  },
+  "timeline": {
+    "label": "Agenda de citas del día"
+  },
+  "filters": {
+    "veterinarian": {
+      "label": "Veterinario",
+      "all": "Todos los veterinarios"
+    },
+    "status": {
+      "label": "Estado",
+      "all": "Todos los estados"
+    },
+    "type": {
+      "label": "Tipo",
+      "all": "Todos los tipos"
+    },
+    "clear": "Limpiar filtros"
+  },
+  "statuses": {
+    "scheduled": "Programada",
+    "confirmed": "Confirmada",
+    "in_progress": "En consulta",
+    "completed": "Completada",
+    "cancelled": "Cancelada"
+  },
+  "types": {
+    "general_consultation": "Consulta general",
+    "vaccination": "Vacunación",
+    "checkup": "Revisión",
+    "weight_control": "Control de peso"
+  },
+  "availability": {
+    "title": "Disponibilidad",
+    "freeSlots": "Espacios libres",
+    "nextAvailable": "Próximo disponible",
+    "later": "Más tarde",
+    "none": "No quedan espacios libres para este día."
+  },
+  "calendar": {
+    "previousMonth": "Mes anterior",
+    "nextMonth": "Mes siguiente",
+    "selectDate": "Seleccionar {{date}}",
+    "hasAppointments": "Tiene citas programadas",
+    "weekdays": {
+      "monday": "L",
+      "tuesday": "M",
+      "wednesday": "X",
+      "thursday": "J",
+      "friday": "V",
+      "saturday": "S",
+      "sunday": "D"
+    }
+  },
+  "empty": {
+    "date": {
+      "title": "No hay citas programadas para este día.",
+      "description": "Selecciona otra fecha en el calendario para revisar su agenda."
+    },
+    "filters": {
+      "title": "No encontramos citas con los filtros seleccionados.",
+      "description": "Ajusta o limpia los filtros para volver a mostrar la agenda."
+    }
+  }
+}

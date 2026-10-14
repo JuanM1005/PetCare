@@ -71,6 +71,15 @@ Appointments.png
 Consultations.png
 ```
 
+The current Stitch references for the Appointments module are stored under:
+
+```text
+docs/references/Stitch/
+```
+
+`appointments-agenda.jpg` guides the global `/appointments` daily schedule. The separate
+`appointment-register.jpg` reference is reserved for the future `/appointments/register` flow.
+
 These references must be inspected before implementing the corresponding UI.
 
 ---

@@ -1,0 +1,77 @@
+{
+  "header": {
+    "title": "Appointments",
+    "subtitle": "Clinical schedule and daily availability"
+  },
+  "page": {
+    "newAppointment": "New appointment",
+    "newAppointmentUnavailable": "Appointment creation will be available soon",
+    "selectedDate": "Selected date: {{date}}"
+  },
+  "card": {
+    "duration": "{{count}} min"
+  },
+  "timeline": {
+    "label": "Daily appointment schedule"
+  },
+  "filters": {
+    "veterinarian": {
+      "label": "Veterinarian",
+      "all": "All veterinarians"
+    },
+    "status": {
+      "label": "Status",
+      "all": "All statuses"
+    },
+    "type": {
+      "label": "Type",
+      "all": "All types"
+    },
+    "clear": "Clear filters"
+  },
+  "statuses": {
+    "scheduled": "Scheduled",
+    "confirmed": "Confirmed",
+    "in_progress": "In consultation",
+    "completed": "Completed",
+    "cancelled": "Cancelled"
+  },
+  "types": {
+    "general_consultation": "General consultation",
+    "vaccination": "Vaccination",
+    "checkup": "Check-up",
+    "weight_control": "Weight control"
+  },
+  "availability": {
+    "title": "Availability",
+    "freeSlots": "Available slots",
+    "nextAvailable": "Next available",
+    "later": "Later",
+    "none": "There are no available slots left for this day."
+  },
+  "calendar": {
+    "previousMonth": "Previous month",
+    "nextMonth": "Next month",
+    "selectDate": "Select {{date}}",
+    "hasAppointments": "Has scheduled appointments",
+    "weekdays": {
+      "monday": "M",
+      "tuesday": "T",
+      "wednesday": "W",
+      "thursday": "T",
+      "friday": "F",
+      "saturday": "S",
+      "sunday": "S"
+    }
+  },
+  "empty": {
+    "date": {
+      "title": "There are no appointments scheduled for this day.",
+      "description": "Select another date in the calendar to review its schedule."
+    },
+    "filters": {
+      "title": "We couldn't find appointments with the selected filters.",
+      "description": "Adjust or clear the filters to show the schedule again."
+    }
+  }
+}
