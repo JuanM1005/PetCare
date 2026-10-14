@@ -2,7 +2,8 @@
   "header": {
     "title": "Pacientes",
     "subtitle": "Gestión de pacientes registrados",
-    "detailSubtitle": "Expediente clínico del paciente"
+    "detailSubtitle": "Expediente clínico del paciente",
+    "registerSubtitle": "Registrar nuevo paciente"
   },
   "toolbar": {
     "searchLabel": "Buscar pacientes",
@@ -66,6 +67,74 @@
     "description": "Los pacientes registrados aparecerán aquí.",
     "filteredTitle": "No se encontraron pacientes",
     "filteredDescription": "Prueba con otra búsqueda o modifica los filtros."
+  },
+  "form": {
+    "title": {
+      "create": "Registrar paciente",
+      "edit": "Editar paciente"
+    },
+    "description": "Completa la información básica del paciente y selecciona a su propietario.",
+    "sections": {
+      "patient": "Información del paciente",
+      "owner": "Propietario"
+    },
+    "fields": {
+      "name": {
+        "label": "Nombre del paciente",
+        "placeholder": "Ej. Firulais"
+      },
+      "species": {
+        "label": "Especie",
+        "placeholder": "Selecciona una especie"
+      },
+      "breed": {
+        "label": "Raza",
+        "placeholder": "Ej. Golden Retriever"
+      },
+      "birthDate": {
+        "label": "Fecha de nacimiento"
+      },
+      "sex": {
+        "label": "Sexo",
+        "placeholder": "Selecciona el sexo"
+      },
+      "weight": {
+        "label": "Peso (kg)",
+        "placeholder": "Ej. 24.6",
+        "hint": "Ingresa el peso en kilogramos."
+      },
+      "owner": {
+        "label": "Propietario",
+        "placeholder": "Selecciona un propietario"
+      }
+    },
+    "actions": {
+      "cancel": "Cancelar",
+      "create": "Registrar paciente",
+      "createSubmitting": "Validando...",
+      "edit": "Guardar cambios",
+      "editSubmitting": "Guardando..."
+    },
+    "validation": {
+      "nameRequired": "El nombre del paciente es obligatorio.",
+      "nameMinLength": "El nombre debe tener al menos 2 caracteres.",
+      "nameMaxLength": "El nombre no puede superar 50 caracteres.",
+      "speciesRequired": "Selecciona una especie.",
+      "speciesInvalid": "Selecciona una especie válida.",
+      "breedRequired": "La raza es obligatoria.",
+      "breedMinLength": "La raza debe tener al menos 2 caracteres.",
+      "breedMaxLength": "La raza no puede superar 60 caracteres.",
+      "birthDateRequired": "La fecha de nacimiento es obligatoria.",
+      "birthDateInvalid": "Ingresa una fecha de nacimiento válida.",
+      "birthDateFuture": "La fecha de nacimiento no puede estar en el futuro.",
+      "sexRequired": "Selecciona el sexo.",
+      "sexInvalid": "Selecciona un sexo válido.",
+      "weightRequired": "El peso es obligatorio.",
+      "weightNumber": "Ingresa un peso válido.",
+      "weightPositive": "El peso debe ser mayor que 0.",
+      "ownerRequired": "Selecciona un propietario."
+    },
+    "submitValidated": "Datos del paciente validados. La persistencia se integrará posteriormente."
   },
   "detail": {
     "actions": {

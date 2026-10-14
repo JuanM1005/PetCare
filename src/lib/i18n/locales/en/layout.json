@@ -3,7 +3,7 @@
     "title": "Dashboard",
     "subtitle": "Today's clinic operations overview",
     "search": "Search",
-    "searchPlaceholder": "Search patients...",
+    "searchPlaceholder": "Search in PetCare...",
     "notifications": "Notifications",
     "notFound": {
       "title": "Page not found",

@@ -2,7 +2,8 @@
   "header": {
     "title": "Patients",
     "subtitle": "Manage registered patients",
-    "detailSubtitle": "Patient clinical record"
+    "detailSubtitle": "Patient clinical record",
+    "registerSubtitle": "Register a new patient"
   },
   "toolbar": {
     "searchLabel": "Search patients",
@@ -66,6 +67,74 @@
     "description": "Registered patients will appear here.",
     "filteredTitle": "No patients found",
     "filteredDescription": "Try another search or adjust the filters."
+  },
+  "form": {
+    "title": {
+      "create": "Register patient",
+      "edit": "Edit patient"
+    },
+    "description": "Complete the patient's basic information and select their owner.",
+    "sections": {
+      "patient": "Patient information",
+      "owner": "Owner"
+    },
+    "fields": {
+      "name": {
+        "label": "Patient name",
+        "placeholder": "e.g. Firulais"
+      },
+      "species": {
+        "label": "Species",
+        "placeholder": "Select a species"
+      },
+      "breed": {
+        "label": "Breed",
+        "placeholder": "e.g. Golden Retriever"
+      },
+      "birthDate": {
+        "label": "Date of birth"
+      },
+      "sex": {
+        "label": "Sex",
+        "placeholder": "Select sex"
+      },
+      "weight": {
+        "label": "Weight (kg)",
+        "placeholder": "e.g. 24.6",
+        "hint": "Enter the weight in kilograms."
+      },
+      "owner": {
+        "label": "Owner",
+        "placeholder": "Select an owner"
+      }
+    },
+    "actions": {
+      "cancel": "Cancel",
+      "create": "Register patient",
+      "createSubmitting": "Validating...",
+      "edit": "Save changes",
+      "editSubmitting": "Saving..."
+    },
+    "validation": {
+      "nameRequired": "Patient name is required.",
+      "nameMinLength": "Name must be at least 2 characters.",
+      "nameMaxLength": "Name cannot exceed 50 characters.",
+      "speciesRequired": "Select a species.",
+      "speciesInvalid": "Select a valid species.",
+      "breedRequired": "Breed is required.",
+      "breedMinLength": "Breed must be at least 2 characters.",
+      "breedMaxLength": "Breed cannot exceed 60 characters.",
+      "birthDateRequired": "Date of birth is required.",
+      "birthDateInvalid": "Enter a valid date of birth.",
+      "birthDateFuture": "Date of birth cannot be in the future.",
+      "sexRequired": "Select sex.",
+      "sexInvalid": "Select a valid sex.",
+      "weightRequired": "Weight is required.",
+      "weightNumber": "Enter a valid weight.",
+      "weightPositive": "Weight must be greater than 0.",
+      "ownerRequired": "Select an owner."
+    },
+    "submitValidated": "Patient data validated. Persistence will be integrated later."
   },
   "detail": {
     "actions": {

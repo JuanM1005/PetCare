@@ -1,7 +1,8 @@
 import { FiUserPlus } from 'react-icons/fi';
 import { useTranslation } from 'react-i18next';
+import { Link } from 'react-router';
 
-import { Button, Card, Input, Select } from '@/components/ui';
+import { Card, Input, Select } from '@/components/ui';
 
 import type { PatientStatusFilter, SpeciesFilter } from '../../patients.types';
 import type { PatientsToolbarProps } from './PatientsToolbar.types';
@@ -56,10 +57,13 @@ export const PatientsToolbar = ({
         value={status}
       />
 
-      <Button disabled title={t('actions.availableSoon')}>
+      <Link
+        className="inline-flex min-h-9 items-center justify-center gap-2 rounded-md bg-primary-500 px-4 py-2 text-sm font-medium text-neutral-0 transition-colors hover:bg-primary-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2 focus-visible:ring-offset-surface"
+        to="/patients/register"
+      >
         <FiUserPlus aria-hidden="true" className="size-4" />
         {t('actions.register')}
-      </Button>
+      </Link>
     </Card>
   );
 };

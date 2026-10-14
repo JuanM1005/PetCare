@@ -20,6 +20,9 @@ import type { SidebarProps } from './Sidebar.types';
 const accountButtonClassName =
   'flex min-h-10 items-center rounded-md text-sm font-medium text-text-secondary transition-colors hover:bg-surface-hover hover:text-text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2 focus-visible:ring-offset-surface motion-reduce:transition-none';
 
+const logoutButtonClassName =
+  'flex min-h-10 items-center rounded-md text-sm font-medium text-red-600 transition-colors hover:bg-red-50 hover:text-red-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-500 focus-visible:ring-offset-2 focus-visible:ring-offset-surface motion-reduce:transition-none';
+
 export const Sidebar = ({ className }: SidebarProps) => {
   const [isCollapsed, setIsCollapsed] = useState(false);
   const { t } = useTranslation('layout', { keyPrefix: 'sidebar' });
@@ -222,7 +225,7 @@ export const Sidebar = ({ className }: SidebarProps) => {
             <button
               aria-label={t('logout')}
               className={clsx(
-                accountButtonClassName,
+                logoutButtonClassName,
                 isCollapsed ? 'size-10 justify-center' : 'gap-3 px-2',
               )}
               title={isCollapsed ? t('logout') : undefined}

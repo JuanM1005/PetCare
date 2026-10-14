@@ -3,7 +3,7 @@
     "title": "Panel",
     "subtitle": "Resumen operativo de la clínica para hoy",
     "search": "Buscar",
-    "searchPlaceholder": "Buscar pacientes...",
+    "searchPlaceholder": "Buscar en PetCare...",
     "notifications": "Notificaciones",
     "notFound": {
       "title": "Página no encontrada",

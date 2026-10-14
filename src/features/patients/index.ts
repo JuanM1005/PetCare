@@ -3,7 +3,9 @@ export type { PatientDetailOutletContext } from './layouts/PatientDetailLayout';
 export { PatientAppointmentsPage } from './pages/PatientAppointmentsPage';
 export { PatientHistoryPage } from './pages/PatientHistoryPage';
 export { PatientSummaryPage } from './pages/PatientSummaryPage';
+export { RegisterPatientPage } from './pages/RegisterPatientPage';
 export { PatientsPage } from './PatientsPage';
+export type { PatientFormValues } from './schemas/patient-form.schema';
 export type {
   MedicalHistoryFilterState,
   MedicalHistoryPeriod,

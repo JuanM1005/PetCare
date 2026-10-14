@@ -13,6 +13,7 @@ import {
   PatientHistoryPage,
   PatientsPage,
   PatientSummaryPage,
+  RegisterPatientPage,
 } from '@/features/patients';
 
 import type { AppRouteHandle } from './router.types';
@@ -58,6 +59,16 @@ export const router = createBrowserRouter([
                 handle: {
                   header: {
                     subtitleKey: 'patients:header.subtitle',
+                    titleKey: 'patients:header.title',
+                  },
+                } satisfies AppRouteHandle,
+              },
+              {
+                path: 'patients/register',
+                Component: RegisterPatientPage,
+                handle: {
+                  header: {
+                    subtitleKey: 'patients:header.registerSubtitle',
                     titleKey: 'patients:header.title',
                   },
                 } satisfies AppRouteHandle,
