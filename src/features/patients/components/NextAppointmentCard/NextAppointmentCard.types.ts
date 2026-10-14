@@ -1,6 +1,6 @@
-import type { PatientAppointmentSummary } from '../../patients.types';
+import type { PatientAppointment } from '../../patients.types';
 
 export interface NextAppointmentCardProps {
-  appointment: PatientAppointmentSummary | null;
+  appointment: PatientAppointment | null;
   className?: string;
 }

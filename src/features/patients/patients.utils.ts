@@ -1,6 +1,8 @@
 import type {
   MedicalHistoryFilterState,
   MedicalHistoryPeriod,
+  PatientAppointment,
+  PatientAppointmentFilterState,
   PatientMedicalRecord,
   PatientWeightRecord,
 } from './patients.types';
@@ -14,6 +16,27 @@ const periodMonths: Record<Exclude<MedicalHistoryPeriod, 'all'>, number> = {
   '3m': 3,
   '6m': 6,
   '12m': 12,
+};
+
+const getLocalDate = (date: string, time = '00:00') => new Date(`${date}T${time}:00`);
+
+/**
+ * Comprueba si una fecha ISO está dentro de un periodo relativo.
+ * Se interpreta en horario local para evitar cambios de día por zona horaria.
+ */
+export const isDateWithinPeriod = (
+  date: string,
+  period: MedicalHistoryPeriod,
+  referenceDate = new Date(),
+): boolean => {
+  if (period === 'all') {
+    return true;
+  }
+
+  const periodStart = new Date(referenceDate);
+  periodStart.setMonth(periodStart.getMonth() - periodMonths[period]);
+
+  return getLocalDate(date) >= periodStart;
 };
 
 export const getPatientAgeParts = (
@@ -45,15 +68,8 @@ export const filterMedicalRecords = (
   filters: MedicalHistoryFilterState,
   referenceDate = new Date(),
 ): PatientMedicalRecord[] => {
-  const periodStart = new Date(referenceDate);
-
-  if (filters.period !== 'all') {
-    periodStart.setMonth(periodStart.getMonth() - periodMonths[filters.period]);
-  }
-
   return records.filter((record) => {
-    const recordDate = new Date(`${record.date}T00:00:00`);
-    const matchesPeriod = filters.period === 'all' || recordDate >= periodStart;
+    const matchesPeriod = isDateWithinPeriod(record.date, filters.period, referenceDate);
     const matchesType = filters.recordType === 'all' || record.type === filters.recordType;
     const matchesVeterinarian =
       filters.veterinarianId === 'all' || record.veterinarian.id === filters.veterinarianId;
@@ -61,6 +77,44 @@ export const filterMedicalRecords = (
     return matchesPeriod && matchesType && matchesVeterinarian;
   });
 };
+
+export interface PatientAppointmentsByTiming {
+  history: PatientAppointment[];
+  upcoming: PatientAppointment[];
+}
+
+/**
+ * Separa y ordena las citas respecto al momento de consulta.
+ * Una cita que comienza exactamente en ese momento todavía se considera próxima.
+ */
+export const groupPatientAppointments = (
+  appointments: PatientAppointment[],
+  referenceDate = new Date(),
+): PatientAppointmentsByTiming => {
+  const upcoming = appointments
+    .filter((appointment) => getLocalDate(appointment.date, appointment.time) >= referenceDate)
+    .toSorted((first, second) =>
+      `${first.date}T${first.time}`.localeCompare(`${second.date}T${second.time}`),
+    );
+  const history = appointments
+    .filter((appointment) => getLocalDate(appointment.date, appointment.time) < referenceDate)
+    .toSorted((first, second) =>
+      `${second.date}T${second.time}`.localeCompare(`${first.date}T${first.time}`),
+    );
+
+  return { history, upcoming };
+};
+
+export const filterPatientAppointments = (
+  appointments: PatientAppointment[],
+  filters: PatientAppointmentFilterState,
+  referenceDate = new Date(),
+): PatientAppointment[] =>
+  appointments.filter(
+    (appointment) =>
+      isDateWithinPeriod(appointment.date, filters.period, referenceDate) &&
+      (filters.status === 'all' || appointment.status === filters.status),
+  );
 
 export interface PatientWeightEvolution {
   changeKg: number;

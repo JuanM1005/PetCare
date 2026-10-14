@@ -1,5 +1,6 @@
 export { PatientDetailLayout } from './layouts/PatientDetailLayout';
 export type { PatientDetailOutletContext } from './layouts/PatientDetailLayout';
+export { PatientAppointmentsPage } from './pages/PatientAppointmentsPage';
 export { PatientHistoryPage } from './pages/PatientHistoryPage';
 export { PatientSummaryPage } from './pages/PatientSummaryPage';
 export { PatientsPage } from './PatientsPage';
@@ -11,7 +12,11 @@ export type {
   MedicalRecordTypeFilter,
   PatientAlert,
   PatientAlertSeverity,
-  PatientAppointmentSummary,
+  PatientAppointment,
+  PatientAppointmentFilterState,
+  PatientAppointmentReason,
+  PatientAppointmentStatus,
+  PatientAppointmentStatusFilter,
   PatientConsultationSummary,
   PatientDetailItem,
   PatientListItem,

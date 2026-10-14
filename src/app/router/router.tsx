@@ -9,6 +9,7 @@ import { AppLayout } from '@/components/layout';
 import { DashboardPage } from '@/features/dashboard';
 import {
   PatientDetailLayout,
+  PatientAppointmentsPage,
   PatientHistoryPage,
   PatientsPage,
   PatientSummaryPage,
@@ -78,6 +79,10 @@ export const router = createBrowserRouter([
                   {
                     path: 'history',
                     Component: PatientHistoryPage,
+                  },
+                  {
+                    path: 'appointments',
+                    Component: PatientAppointmentsPage,
                   },
                 ],
               },

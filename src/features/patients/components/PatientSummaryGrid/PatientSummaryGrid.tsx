@@ -5,6 +5,7 @@ import { useTranslation } from 'react-i18next';
 import { Button, Card } from '@/components/ui';
 import { getSupportedLanguage, languageLocales } from '@/lib/i18n';
 
+import { groupPatientAppointments } from '../../patients.utils';
 import type { PatientSummaryGridProps } from './PatientSummaryGrid.types';
 import { NextAppointmentCard } from '../NextAppointmentCard';
 
@@ -20,6 +21,7 @@ export const PatientSummaryGrid = ({ patient }: PatientSummaryGridProps) => {
       }),
     [language],
   );
+  const nextAppointment = groupPatientAppointments(patient.appointments).upcoming[0] ?? null;
 
   return (
     <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
@@ -62,7 +64,7 @@ export const PatientSummaryGrid = ({ patient }: PatientSummaryGridProps) => {
         )}
       </Card>
 
-      <NextAppointmentCard appointment={patient.nextAppointment} className="min-h-64" />
+      <NextAppointmentCard appointment={nextAppointment} className="min-h-64" />
 
       <Card className="flex min-h-64 flex-col md:col-span-2 xl:col-span-1" padding="md">
         <div className="flex items-center gap-2">

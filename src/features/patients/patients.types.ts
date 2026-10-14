@@ -8,7 +8,10 @@ export type PatientMedicationType = 'antiparasitic' | 'chondroprotective';
 export type PatientMedicationFrequency = 'monthly' | 'daily';
 export type PatientConsultationTitle = 'annualReview';
 export type PatientConsultationSummaryText = 'goodGeneralCondition';
-export type PatientAppointmentReason = 'generalConsultation';
+export type PatientAppointmentReason =
+  'generalConsultation' | 'annualVaccination' | 'weightCheck' | 'dentalProcedure';
+export type PatientAppointmentStatus = 'scheduled' | 'confirmed' | 'completed' | 'cancelled';
+export type PatientAppointmentStatusFilter = PatientAppointmentStatus | 'all';
 export type MedicalRecordType = 'consultation' | 'vaccination' | 'checkup' | 'procedure';
 export type MedicalRecordStatus = 'completed' | 'pending';
 export type MedicalRecordTitle =
@@ -58,10 +61,16 @@ export interface PatientConsultationSummary {
   veterinarianName: string;
 }
 
-export interface PatientAppointmentSummary {
+export interface PatientAppointment {
   date: string;
   id: string;
   reason: PatientAppointmentReason;
+  status: PatientAppointmentStatus;
+  time: string;
+  veterinarian: {
+    id: string;
+    name: string;
+  };
 }
 
 export interface PatientMedicalAttachment {
@@ -95,13 +104,18 @@ export interface MedicalHistoryFilterState {
   veterinarianId: string;
 }
 
+export interface PatientAppointmentFilterState {
+  period: MedicalHistoryPeriod;
+  status: PatientAppointmentStatusFilter;
+}
+
 export interface PatientDetailItem extends PatientListItem {
   activeMedications: PatientMedicationSummary[];
   alerts: PatientAlert[];
+  appointments: PatientAppointment[];
   imageUrl?: string;
   lastConsultation: PatientConsultationSummary | null;
   medicalRecords: PatientMedicalRecord[];
-  nextAppointment: PatientAppointmentSummary | null;
   sex: PatientSex;
   weightKg: number;
   weightHistory: PatientWeightRecord[];

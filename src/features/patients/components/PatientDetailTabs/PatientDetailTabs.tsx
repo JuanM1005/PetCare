@@ -40,14 +40,19 @@ export const PatientDetailTabs = ({ patientId }: PatientDetailTabsProps) => {
         >
           {t('detail.tabs.history')}
         </NavLink>
-        <button
-          aria-disabled="true"
-          className="cursor-not-allowed border-b-2 border-transparent px-1 py-3 text-sm font-medium text-text-muted opacity-60"
-          disabled
-          type="button"
+        <NavLink
+          className={({ isActive }) =>
+            clsx(
+              tabClassName,
+              isActive
+                ? 'border-primary-500 font-semibold text-primary-600'
+                : 'border-transparent text-text-muted hover:text-text-primary',
+            )
+          }
+          to={`/patients/${patientId}/appointments`}
         >
           {t('detail.tabs.appointments')}
-        </button>
+        </NavLink>
       </div>
     </nav>
   );

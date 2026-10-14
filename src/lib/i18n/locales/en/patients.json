@@ -123,7 +123,10 @@
       "emptyTitle": "No appointments scheduled",
       "emptyDescription": "There are no future visits scheduled.",
       "reasons": {
-        "generalConsultation": "General consultation"
+        "generalConsultation": "General consultation",
+        "annualVaccination": "Annual vaccination",
+        "weightCheck": "Weight check",
+        "dentalProcedure": "Dental procedure"
       }
     },
     "medication": {
@@ -141,6 +144,54 @@
     "notFound": {
       "title": "Patient not found",
       "description": "We couldn't find the requested patient."
+    }
+  },
+  "appointments": {
+    "upcoming": {
+      "title": "Upcoming appointments",
+      "empty": {
+        "title": "No appointments scheduled",
+        "description": "There are no future visits scheduled."
+      }
+    },
+    "history": {
+      "title": "Appointment history",
+      "empty": {
+        "title": "No appointment history",
+        "description": "This patient does not have any recorded appointments yet."
+      },
+      "filteredEmpty": {
+        "title": "No appointments found",
+        "description": "There are no appointments matching the selected filters."
+      }
+    },
+    "columns": {
+      "date": "Date",
+      "time": "Time",
+      "reason": "Reason",
+      "veterinarian": "Veterinarian",
+      "status": "Status"
+    },
+    "filters": {
+      "status": {
+        "label": "Status",
+        "options": {
+          "all": "All statuses",
+          "scheduled": "Scheduled",
+          "confirmed": "Confirmed",
+          "completed": "Completed",
+          "cancelled": "Cancelled"
+        }
+      },
+      "period": {
+        "label": "Period"
+      }
+    },
+    "status": {
+      "scheduled": "Scheduled",
+      "confirmed": "Confirmed",
+      "completed": "Completed",
+      "cancelled": "Cancelled"
     }
   },
   "history": {

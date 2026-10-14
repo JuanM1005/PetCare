@@ -5,7 +5,7 @@ import { useTranslation } from 'react-i18next';
 import { Card } from '@/components/ui';
 import { getSupportedLanguage, languageLocales } from '@/lib/i18n';
 
-import { getPatientWeightEvolution } from '../../patients.utils';
+import { getPatientWeightEvolution, groupPatientAppointments } from '../../patients.utils';
 import { NextAppointmentCard } from '../NextAppointmentCard';
 import type { PatientHistorySidebarProps } from './PatientHistorySidebar.types';
 
@@ -18,6 +18,7 @@ export const PatientHistorySidebar = ({ patient }: PatientHistorySidebarProps) =
     minimumFractionDigits: 1,
   });
   const weightEvolution = getPatientWeightEvolution(patient.weightHistory);
+  const nextAppointment = groupPatientAppointments(patient.appointments).upcoming[0] ?? null;
   const sortedWeights = patient.weightHistory.toSorted((first, second) =>
     first.date.localeCompare(second.date),
   );
@@ -73,7 +74,7 @@ export const PatientHistorySidebar = ({ patient }: PatientHistorySidebarProps) =
         )}
       </Card>
 
-      <NextAppointmentCard appointment={patient.nextAppointment} />
+      <NextAppointmentCard appointment={nextAppointment} />
 
       <Card padding="md">
         <div className="flex items-center justify-between gap-3">

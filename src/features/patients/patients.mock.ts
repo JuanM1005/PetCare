@@ -294,6 +294,40 @@ export const patientDetails: PatientDetailItem[] = [
         severity: 'danger',
       },
     ],
+    appointments: [
+      {
+        id: 'appointment-001',
+        date: '2026-10-12',
+        time: '09:30',
+        reason: 'generalConsultation',
+        veterinarian: { id: 'vet-001', name: 'Dr. Carlos López' },
+        status: 'completed',
+      },
+      {
+        id: 'appointment-002',
+        date: '2026-08-20',
+        time: '11:00',
+        reason: 'annualVaccination',
+        veterinarian: { id: 'vet-002', name: 'Dra. Andrea Ruiz' },
+        status: 'completed',
+      },
+      {
+        id: 'appointment-003',
+        date: '2026-06-15',
+        time: '10:15',
+        reason: 'weightCheck',
+        veterinarian: { id: 'vet-001', name: 'Dr. Carlos López' },
+        status: 'completed',
+      },
+      {
+        id: 'appointment-004',
+        date: '2026-03-05',
+        time: '16:00',
+        reason: 'generalConsultation',
+        veterinarian: { id: 'vet-001', name: 'Dr. Carlos López' },
+        status: 'cancelled',
+      },
+    ],
     lastConsultation: {
       id: 'consultation-001',
       date: '2026-10-12',
@@ -341,7 +375,6 @@ export const patientDetails: PatientDetailItem[] = [
         summary: 'dentalProcedure',
       },
     ],
-    nextAppointment: null,
     sex: 'female',
     weightKg: 24.6,
     weightHistory: [
