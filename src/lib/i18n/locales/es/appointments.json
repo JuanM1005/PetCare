@@ -2,14 +2,16 @@
   "header": {
     "title": "Citas",
     "subtitle": "Agenda clínica y disponibilidad del día",
-    "registerSubtitle": "Programar nueva cita"
+    "registerSubtitle": "Programar nueva cita",
+    "detailSubtitle": "Detalle de la cita"
   },
   "page": {
     "newAppointment": "Nueva cita",
     "selectedDate": "Fecha seleccionada: {{date}}"
   },
   "card": {
-    "duration": "{{count}} min"
+    "duration": "{{count}} min",
+    "viewDetails": "Ver detalle de la cita de {{patient}} a las {{time}}"
   },
   "timeline": {
     "label": "Agenda de citas del día"
@@ -145,5 +147,37 @@
       "startTimeRequired": "Selecciona un horario disponible."
     },
     "submitValidated": "Datos de la cita validados. La persistencia se integrará posteriormente."
+  },
+  "detail": {
+    "back": "Volver a citas",
+    "actions": {
+      "edit": "Editar cita",
+      "cancel": "Cancelar cita",
+      "availableSoon": "Disponible en una próxima etapa"
+    },
+    "schedule": {
+      "title": "Fecha y hora",
+      "date": "Fecha",
+      "time": "Horario",
+      "duration": "Duración"
+    },
+    "patient": {
+      "title": "Paciente",
+      "owner": "Propietario",
+      "viewRecord": "Ver expediente",
+      "unavailable": "Paciente no disponible"
+    },
+    "details": {
+      "title": "Detalles de la cita",
+      "reason": "Motivo",
+      "veterinarian": "Veterinario",
+      "veterinarianUnavailable": "Veterinario no disponible",
+      "notes": "Notas",
+      "noNotes": "Sin notas adicionales."
+    },
+    "notFound": {
+      "title": "Cita no encontrada",
+      "description": "No pudimos encontrar la cita solicitada."
+    }
   }
 }

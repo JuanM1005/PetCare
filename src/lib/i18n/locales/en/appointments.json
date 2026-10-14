@@ -2,14 +2,16 @@
   "header": {
     "title": "Appointments",
     "subtitle": "Clinical schedule and daily availability",
-    "registerSubtitle": "Schedule a new appointment"
+    "registerSubtitle": "Schedule a new appointment",
+    "detailSubtitle": "Appointment details"
   },
   "page": {
     "newAppointment": "New appointment",
     "selectedDate": "Selected date: {{date}}"
   },
   "card": {
-    "duration": "{{count}} min"
+    "duration": "{{count}} min",
+    "viewDetails": "View {{patient}}'s appointment details at {{time}}"
   },
   "timeline": {
     "label": "Daily appointment schedule"
@@ -145,5 +147,37 @@
       "startTimeRequired": "Select an available time."
     },
     "submitValidated": "Appointment data validated. Persistence will be integrated later."
+  },
+  "detail": {
+    "back": "Back to appointments",
+    "actions": {
+      "edit": "Edit appointment",
+      "cancel": "Cancel appointment",
+      "availableSoon": "Available in a future stage"
+    },
+    "schedule": {
+      "title": "Date and time",
+      "date": "Date",
+      "time": "Time",
+      "duration": "Duration"
+    },
+    "patient": {
+      "title": "Patient",
+      "owner": "Owner",
+      "viewRecord": "View patient record",
+      "unavailable": "Patient unavailable"
+    },
+    "details": {
+      "title": "Appointment details",
+      "reason": "Reason",
+      "veterinarian": "Veterinarian",
+      "veterinarianUnavailable": "Veterinarian unavailable",
+      "notes": "Notes",
+      "noNotes": "No additional notes."
+    },
+    "notFound": {
+      "title": "Appointment not found",
+      "description": "We couldn't find the requested appointment."
+    }
   }
 }

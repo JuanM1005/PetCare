@@ -95,17 +95,15 @@ PetCare
 The default primary visual identity uses PetCare Blue. Approved accent presets may personalize
 interactive emphasis without changing the clear clinical foundation.
 
-Sidebar branding uses a blue rounded-square icon with a white paw alongside the
-PetCare wordmark and the `CLÍNICA VETERINARIA` subtitle.
-
-The provided PetCare PNG logo is reserved for the application favicon:
+PetCare uses the following asset as its official interface logo:
 
 ```text
-public/favicon.png
+src/assets/branding/petcare-logo.png
 ```
 
-Do not use the PNG logo inside the Sidebar or other navigation components unless
-the design specification changes.
+The Sidebar displays this logo alongside the independent PetCare wordmark and the
+`CLÍNICA VETERINARIA` subtitle. The logo keeps its official blue appearance and does not change
+with Accent Themes. Do not recreate it with CSS or icon libraries.
 
 Generic veterinary icons may still be used elsewhere in the interface where
 appropriate.

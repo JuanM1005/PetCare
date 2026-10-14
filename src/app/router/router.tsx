@@ -6,7 +6,11 @@ import { SidebarPreviewPage } from '@/app/dev/SidebarPreviewPage';
 import { NotFoundPage } from '@/app/pages/NotFoundPage';
 import { RouteErrorPage } from '@/app/pages/RouteErrorPage';
 import { AppLayout } from '@/components/layout';
-import { AppointmentsPage, RegisterAppointmentPage } from '@/features/appointments';
+import {
+  AppointmentDetailPage,
+  AppointmentsPage,
+  RegisterAppointmentPage,
+} from '@/features/appointments';
 import { DashboardPage } from '@/features/dashboard';
 import {
   EditPatientPage,
@@ -72,6 +76,16 @@ export const router = createBrowserRouter([
                 handle: {
                   header: {
                     subtitleKey: 'appointments:header.registerSubtitle',
+                    titleKey: 'appointments:header.title',
+                  },
+                } satisfies AppRouteHandle,
+              },
+              {
+                path: 'appointments/:appointmentId',
+                Component: AppointmentDetailPage,
+                handle: {
+                  header: {
+                    subtitleKey: 'appointments:header.detailSubtitle',
                     titleKey: 'appointments:header.title',
                   },
                 } satisfies AppRouteHandle,

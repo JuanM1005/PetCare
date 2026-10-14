@@ -8,10 +8,10 @@ import {
   FiUser,
   FiWifiOff,
 } from 'react-icons/fi';
-import { FaPaw } from 'react-icons/fa6';
 import { useTranslation } from 'react-i18next';
 import { NavLink } from 'react-router';
 
+import petcareLogo from '@/assets/branding/petcare-logo.png';
 import { Card } from '@/components/ui';
 
 import { sidebarNavItems } from './Sidebar.config';
@@ -56,10 +56,16 @@ export const Sidebar = ({ className }: SidebarProps) => {
         <div className={clsx('flex items-center', isCollapsed ? 'justify-center' : 'gap-4')}>
           <span
             aria-label={isCollapsed ? 'PetCare' : undefined}
-            className="flex size-14 shrink-0 items-center justify-center rounded-xl bg-primary-action text-neutral-0 shadow-sm"
+            className="size-14 shrink-0"
             role={isCollapsed ? 'img' : undefined}
           >
-            <FaPaw aria-hidden="true" className="size-6" />
+            <img
+              alt=""
+              className="size-14 object-contain"
+              height="56"
+              src={petcareLogo}
+              width="56"
+            />
           </span>
           {!isCollapsed ? (
             <div className="min-w-0 transition-opacity duration-150 motion-reduce:transition-none">
@@ -78,8 +84,8 @@ export const Sidebar = ({ className }: SidebarProps) => {
             isCollapsed ? `Dr. Carlos Lopez, ${t('doctorRole')}, ${t('disconnected')}` : undefined
           }
         >
-          <span className="flex size-12 shrink-0 items-center justify-center rounded-lg bg-primary-action font-semibold text-neutral-0">
-            CL
+          <span className="flex size-12 shrink-0 items-center justify-center rounded-lg bg-primary-action text-neutral-0">
+            <FiUser aria-hidden="true" className="size-6" />
           </span>
           {!isCollapsed ? (
             <>

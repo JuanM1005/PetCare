@@ -16,6 +16,7 @@ export const appointments = [
     startTime: '09:30',
     durationMinutes: 30,
     status: 'scheduled',
+    notes: 'Revisar apetito reducido durante los últimos dos días.',
   },
   {
     id: 'appointment-102',

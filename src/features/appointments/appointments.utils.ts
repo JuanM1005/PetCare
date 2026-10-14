@@ -29,6 +29,13 @@ const minutesToTime = (minutes: number): string => {
   return `${String(hours).padStart(2, '0')}:${String(remainingMinutes).padStart(2, '0')}`;
 };
 
+/**
+ * Calcula la hora de finalización a partir de una hora local y su duración.
+ * Mantiene el cálculo en minutos para evitar conversiones UTC innecesarias.
+ */
+export const getAppointmentEndTime = (startTime: string, durationMinutes: number): string =>
+  minutesToTime(timeToMinutes(startTime) + durationMinutes);
+
 export const getLocalDate = (value: string): Date => new Date(`${value}T12:00:00`);
 
 export const getDateValue = (date: Date): string => {
