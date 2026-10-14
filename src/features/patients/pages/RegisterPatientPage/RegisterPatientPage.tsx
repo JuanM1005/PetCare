@@ -3,21 +3,14 @@ import { useTranslation } from 'react-i18next';
 import { Link, useNavigate } from 'react-router';
 import { toast } from 'react-hot-toast';
 
-import type { SelectOption } from '@/components/ui';
-
 import { PatientForm } from '../../components/PatientForm';
 import { patients } from '../../patients.mock';
+import { getPatientOwnerOptions } from '../../patients.utils';
 
 const backLinkClassName =
   'inline-flex min-h-9 items-center gap-2 rounded-md text-sm font-medium text-primary-600 transition-colors hover:text-primary-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2 focus-visible:ring-offset-app-background';
 
-const ownerOptions = patients.reduce<SelectOption[]>((options, patient) => {
-  if (options.some((option) => option.value === patient.owner.id)) {
-    return options;
-  }
-
-  return [...options, { label: patient.owner.name, value: patient.owner.id }];
-}, []);
+const ownerOptions = getPatientOwnerOptions(patients);
 
 export const RegisterPatientPage = () => {
   const navigate = useNavigate();

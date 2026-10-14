@@ -11,6 +11,8 @@ import type { PatientDetailOutletContext } from './PatientDetailLayout.types';
 
 const backLinkClassName =
   'inline-flex min-h-9 items-center gap-2 rounded-md text-sm font-medium text-primary-600 transition-colors hover:text-primary-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2 focus-visible:ring-offset-app-background';
+const secondaryLinkClassName =
+  'inline-flex min-h-9 items-center justify-center gap-2 rounded-md border-hairline border-border-strong bg-surface px-4 py-2 text-sm font-medium text-text-primary transition-colors hover:bg-surface-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2 focus-visible:ring-offset-surface';
 
 export const PatientDetailLayout = () => {
   const { patientId } = useParams<{ patientId: string }>();
@@ -46,10 +48,10 @@ export const PatientDetailLayout = () => {
         </Link>
 
         <div className="flex w-full flex-wrap items-center gap-2 sm:w-auto sm:justify-end">
-          <Button disabled title={t('actions.availableSoon')} variant="secondary">
+          <Link className={secondaryLinkClassName} to={`/patients/${patient.id}/edit`}>
             <FiEdit3 aria-hidden="true" className="size-4" />
             {t('detail.actions.edit')}
-          </Button>
+          </Link>
           <Button disabled title={t('actions.availableSoon')} variant="secondary">
             <FiCalendar aria-hidden="true" className="size-4" />
             {t('detail.actions.scheduleAppointment')}

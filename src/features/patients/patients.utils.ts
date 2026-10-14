@@ -4,8 +4,11 @@ import type {
   PatientAppointment,
   PatientAppointmentFilterState,
   PatientMedicalRecord,
+  PatientListItem,
   PatientWeightRecord,
 } from './patients.types';
+
+import type { SelectOption } from '@/components/ui';
 
 export interface PatientAgeParts {
   months: number;
@@ -19,6 +22,15 @@ const periodMonths: Record<Exclude<MedicalHistoryPeriod, 'all'>, number> = {
 };
 
 const getLocalDate = (date: string, time = '00:00') => new Date(`${date}T${time}:00`);
+
+export const getPatientOwnerOptions = (patients: PatientListItem[]): SelectOption[] =>
+  patients.reduce<SelectOption[]>((options, patient) => {
+    if (options.some((option) => option.value === patient.owner.id)) {
+      return options;
+    }
+
+    return [...options, { label: patient.owner.name, value: patient.owner.id }];
+  }, []);
 
 /**
  * Comprueba si una fecha ISO está dentro de un periodo relativo.

@@ -47,7 +47,7 @@ export const PatientForm = ({
 }: PatientFormProps) => {
   const { t } = useTranslation('patients');
   const {
-    formState: { errors, isSubmitting },
+    formState: { errors, isDirty, isSubmitting },
     handleSubmit,
     register,
   } = useForm<PatientFormInput, undefined, PatientFormValues>({
@@ -71,7 +71,7 @@ export const PatientForm = ({
       <Card padding="lg">
         <div className="border-b border-border pb-4">
           <h2 className="text-lg font-semibold text-text-primary">{t(`form.title.${mode}`)}</h2>
-          <p className="mt-1 text-sm text-text-secondary">{t('form.description')}</p>
+          <p className="mt-1 text-sm text-text-secondary">{t(`form.description.${mode}`)}</p>
         </div>
 
         <fieldset className="mt-5">
@@ -179,6 +179,7 @@ export const PatientForm = ({
           </Button>
         ) : null}
         <Button
+          disabled={mode === 'edit' && !isDirty}
           isLoading={isSubmitting}
           loadingText={t(`form.actions.${mode}Submitting`)}
           type="submit"

@@ -3,7 +3,8 @@
     "title": "Pacientes",
     "subtitle": "Gestión de pacientes registrados",
     "detailSubtitle": "Expediente clínico del paciente",
-    "registerSubtitle": "Registrar nuevo paciente"
+    "registerSubtitle": "Registrar nuevo paciente",
+    "editSubtitle": "Editar paciente"
   },
   "toolbar": {
     "searchLabel": "Buscar pacientes",
@@ -73,7 +74,10 @@
       "create": "Registrar paciente",
       "edit": "Editar paciente"
     },
-    "description": "Completa la información básica del paciente y selecciona a su propietario.",
+    "description": {
+      "create": "Completa la información básica del paciente y selecciona a su propietario.",
+      "edit": "Actualiza la información básica del paciente y su propietario."
+    },
     "sections": {
       "patient": "Información del paciente",
       "owner": "Propietario"
@@ -134,11 +138,29 @@
       "weightPositive": "El peso debe ser mayor que 0.",
       "ownerRequired": "Selecciona un propietario."
     },
-    "submitValidated": "Datos del paciente validados. La persistencia se integrará posteriormente."
+    "submitValidated": "Datos del paciente validados. La persistencia se integrará posteriormente.",
+    "editValidated": "Cambios validados. La persistencia se integrará posteriormente."
+  },
+  "edit": {
+    "dangerZone": {
+      "label": "Zona de riesgo",
+      "title": "Eliminar paciente",
+      "description": "Esta acción eliminará el expediente del paciente cuando la persistencia esté disponible."
+    },
+    "delete": {
+      "action": "Eliminar paciente",
+      "title": "Eliminar paciente",
+      "description": "Estás a punto de eliminar el expediente de {{name}}.",
+      "warning": "Esta acción no se podrá deshacer cuando la persistencia esté habilitada.",
+      "cancel": "Cancelar",
+      "confirm": "Eliminar paciente",
+      "toast": "Eliminación confirmada. La persistencia se integrará posteriormente; no se realizaron cambios."
+    }
   },
   "detail": {
     "actions": {
       "backToPatients": "Volver a pacientes",
+      "backToPatient": "Volver al paciente",
       "edit": "Editar datos",
       "scheduleAppointment": "Agendar cita",
       "newConsultation": "Nueva consulta",

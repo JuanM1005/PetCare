@@ -3,7 +3,8 @@
     "title": "Patients",
     "subtitle": "Manage registered patients",
     "detailSubtitle": "Patient clinical record",
-    "registerSubtitle": "Register a new patient"
+    "registerSubtitle": "Register a new patient",
+    "editSubtitle": "Edit patient"
   },
   "toolbar": {
     "searchLabel": "Search patients",
@@ -73,7 +74,10 @@
       "create": "Register patient",
       "edit": "Edit patient"
     },
-    "description": "Complete the patient's basic information and select their owner.",
+    "description": {
+      "create": "Complete the patient's basic information and select their owner.",
+      "edit": "Update the patient's basic information and owner."
+    },
     "sections": {
       "patient": "Patient information",
       "owner": "Owner"
@@ -134,11 +138,29 @@
       "weightPositive": "Weight must be greater than 0.",
       "ownerRequired": "Select an owner."
     },
-    "submitValidated": "Patient data validated. Persistence will be integrated later."
+    "submitValidated": "Patient data validated. Persistence will be integrated later.",
+    "editValidated": "Changes validated. Persistence will be integrated later."
+  },
+  "edit": {
+    "dangerZone": {
+      "label": "Danger zone",
+      "title": "Delete patient",
+      "description": "This action will delete the patient's record once persistence is available."
+    },
+    "delete": {
+      "action": "Delete patient",
+      "title": "Delete patient",
+      "description": "You are about to delete {{name}}'s record.",
+      "warning": "This action cannot be undone once persistence is enabled.",
+      "cancel": "Cancel",
+      "confirm": "Delete patient",
+      "toast": "Deletion confirmed. Persistence will be integrated later; no changes were made."
+    }
   },
   "detail": {
     "actions": {
       "backToPatients": "Back to patients",
+      "backToPatient": "Back to patient",
       "edit": "Edit details",
       "scheduleAppointment": "Schedule appointment",
       "newConsultation": "New consultation",

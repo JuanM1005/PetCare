@@ -8,6 +8,7 @@ import { RouteErrorPage } from '@/app/pages/RouteErrorPage';
 import { AppLayout } from '@/components/layout';
 import { DashboardPage } from '@/features/dashboard';
 import {
+  EditPatientPage,
   PatientDetailLayout,
   PatientAppointmentsPage,
   PatientHistoryPage,
@@ -69,6 +70,16 @@ export const router = createBrowserRouter([
                 handle: {
                   header: {
                     subtitleKey: 'patients:header.registerSubtitle',
+                    titleKey: 'patients:header.title',
+                  },
+                } satisfies AppRouteHandle,
+              },
+              {
+                path: 'patients/:patientId/edit',
+                Component: EditPatientPage,
+                handle: {
+                  header: {
+                    subtitleKey: 'patients:header.editSubtitle',
                     titleKey: 'patients:header.title',
                   },
                 } satisfies AppRouteHandle,

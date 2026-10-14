@@ -1,6 +1,7 @@
 export { PatientDetailLayout } from './layouts/PatientDetailLayout';
 export type { PatientDetailOutletContext } from './layouts/PatientDetailLayout';
 export { PatientAppointmentsPage } from './pages/PatientAppointmentsPage';
+export { EditPatientPage } from './pages/EditPatientPage';
 export { PatientHistoryPage } from './pages/PatientHistoryPage';
 export { PatientSummaryPage } from './pages/PatientSummaryPage';
 export { RegisterPatientPage } from './pages/RegisterPatientPage';
