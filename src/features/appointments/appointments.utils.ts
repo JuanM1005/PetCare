@@ -96,11 +96,16 @@ export const getCalendarMonthDays = (month: Date): Array<CalendarDay | null> => 
 };
 
 export interface AvailabilityOptions {
+  additionalStartTimes?: readonly string[];
   durationMinutes?: number;
+  excludeAppointmentId?: string;
   veterinarianId?: string;
 }
 
-export const getScheduleStartTimes = (durationMinutes: number): string[] => {
+export const getScheduleStartTimes = (
+  durationMinutes: number,
+  additionalStartTimes: readonly string[] = [],
+): string[] => {
   const openingMinutes = timeToMinutes(CLINIC_SCHEDULE.openingTime);
   const closingMinutes = timeToMinutes(CLINIC_SCHEDULE.closingTime);
   const slots: string[] = [];
@@ -113,13 +118,24 @@ export const getScheduleStartTimes = (durationMinutes: number): string[] => {
     slots.push(minutesToTime(slotStart));
   }
 
-  return slots;
+  const validAdditionalStartTimes = additionalStartTimes.filter((time) => {
+    const startMinutes = timeToMinutes(time);
+
+    return startMinutes >= openingMinutes && startMinutes + durationMinutes <= closingMinutes;
+  });
+
+  return [...new Set([...slots, ...validAdditionalStartTimes])].toSorted(
+    (firstTime, secondTime) => timeToMinutes(firstTime) - timeToMinutes(secondTime),
+  );
 };
 
 /**
  * Calcula horarios de inicio válidos según fecha, duración y veterinario opcional.
  * Las citas canceladas no bloquean intervalos y la regla sigue siendo una aproximación
  * frontend sin consultorios, descansos ni horarios individuales.
+ *
+ * Permite excluir una cita durante la edición para evitar que bloquee su propio horario.
+ * Los horarios adicionales conservan horas originales que no coinciden con la parrilla regular.
  */
 export const getAvailableSlots = (
   sourceAppointments: readonly Appointment[],
@@ -130,11 +146,12 @@ export const getAvailableSlots = (
   const blockingAppointments = sourceAppointments.filter(
     (appointment) =>
       appointment.date === date &&
+      appointment.id !== options.excludeAppointmentId &&
       appointment.status !== 'cancelled' &&
       (!options.veterinarianId || appointment.veterinarianId === options.veterinarianId),
   );
 
-  return getScheduleStartTimes(durationMinutes).filter((slot) => {
+  return getScheduleStartTimes(durationMinutes, options.additionalStartTimes).filter((slot) => {
     const slotStart = timeToMinutes(slot);
     const slotEnd = slotStart + durationMinutes;
     const isOccupied = blockingAppointments.some((appointment) => {

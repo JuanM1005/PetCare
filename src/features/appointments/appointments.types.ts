@@ -4,13 +4,14 @@ export type AppointmentStatus =
   'scheduled' | 'confirmed' | 'in_progress' | 'completed' | 'cancelled';
 
 export type AppointmentType = 'general_consultation' | 'vaccination' | 'checkup' | 'weight_control';
+export type AppointmentDuration = 30 | 60 | 90;
 
 export type AppointmentStatusFilter = AppointmentStatus | 'all';
 export type AppointmentTypeFilter = AppointmentType | 'all';
 
 export interface Appointment {
   date: string;
-  durationMinutes: number;
+  durationMinutes: AppointmentDuration;
   id: string;
   notes?: string;
   ownerId: string;

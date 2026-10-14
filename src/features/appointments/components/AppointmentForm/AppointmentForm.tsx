@@ -7,6 +7,7 @@ import { Controller, useForm, useWatch } from 'react-hook-form';
 import { Badge, Button, Card, Select, Textarea } from '@/components/ui';
 import type { SelectOption } from '@/components/ui';
 
+import type { AppointmentDuration } from '../../appointments.types';
 import { getAvailableSlots, getScheduleStartTimes } from '../../appointments.utils';
 import {
   appointmentDurations,
@@ -15,7 +16,6 @@ import {
   createAppointmentFormSchema,
 } from '../../schemas/appointment-form.schema';
 import type {
-  AppointmentDuration,
   AppointmentFormInput,
   AppointmentFormValues,
 } from '../../schemas/appointment-form.schema';
@@ -27,12 +27,25 @@ import type { AppointmentFormProps } from './AppointmentForm.types';
 const isSupportedDuration = (value: number): value is AppointmentDuration =>
   appointmentDurations.some((duration) => duration === value);
 
+const getFormDefaultValues = (
+  initialValues?: Partial<AppointmentFormValues>,
+): AppointmentFormInput => {
+  const { durationMinutes, ...values } = initialValues ?? {};
+
+  return {
+    ...appointmentFormDefaultValues,
+    ...values,
+    ...(durationMinutes ? { durationMinutes: String(durationMinutes) } : {}),
+  };
+};
+
 /**
  * Formulario compartido por los futuros flujos de creación y edición de citas.
  * Recibe datos auxiliares por props para no depender de mocks, rutas ni persistencia.
  */
 export const AppointmentForm = ({
   appointments,
+  excludeAppointmentId,
   initialValues,
   minimumDate,
   mode,
@@ -54,16 +67,12 @@ export const AppointmentForm = ({
   const {
     clearErrors,
     control,
-    formState: { errors, isSubmitting },
+    formState: { errors, isDirty, isSubmitting },
     handleSubmit,
     register,
     setValue,
   } = useForm<AppointmentFormInput, undefined, AppointmentFormValues>({
-    defaultValues: {
-      ...appointmentFormDefaultValues,
-      date: minimumDate,
-      ...initialValues,
-    },
+    defaultValues: getFormDefaultValues({ date: minimumDate, ...initialValues }),
     resolver: valibotResolver(schema),
   });
   const selectedDate = useWatch({ control, name: 'date' });
@@ -72,19 +81,29 @@ export const AppointmentForm = ({
   const selectedVeterinarianId = useWatch({ control, name: 'veterinarianId' });
   const parsedDuration = Number(selectedDurationValue);
   const selectedDuration = isSupportedDuration(parsedDuration) ? parsedDuration : 30;
+  const initialStartTime = initialValues?.startTime;
   const availableSlots = useMemo(
     () =>
       selectedDate && selectedVeterinarianId
         ? getAvailableSlots(appointments, selectedDate, {
+            additionalStartTimes: initialStartTime ? [initialStartTime] : [],
             durationMinutes: selectedDuration,
+            excludeAppointmentId,
             veterinarianId: selectedVeterinarianId,
           })
         : [],
-    [appointments, selectedDate, selectedDuration, selectedVeterinarianId],
+    [
+      appointments,
+      excludeAppointmentId,
+      initialStartTime,
+      selectedDate,
+      selectedDuration,
+      selectedVeterinarianId,
+    ],
   );
   const scheduleStartTimes = useMemo(
-    () => getScheduleStartTimes(selectedDuration),
-    [selectedDuration],
+    () => getScheduleStartTimes(selectedDuration, initialStartTime ? [initialStartTime] : []),
+    [initialStartTime, selectedDuration],
   );
   const translateError = (message?: string) => (message ? t(message) : undefined);
   const typeOptions: SelectOption[] = appointmentFormTypes.map((type) => ({
@@ -254,6 +273,7 @@ export const AppointmentForm = ({
           </Button>
         ) : null}
         <Button
+          disabled={mode === 'edit' && !isDirty}
           isLoading={isSubmitting}
           loadingText={t(`register.actions.${mode}Submitting`)}
           type="submit"

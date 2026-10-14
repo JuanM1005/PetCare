@@ -19,11 +19,14 @@ import { getSupportedLanguage, languageLocales } from '@/lib/i18n';
 import { appointmentStatusBadgeVariants } from '../../appointments.constants';
 import { appointments, veterinarians } from '../../appointments.mock';
 import { getAppointmentEndTime, getLocalDate } from '../../appointments.utils';
+import { AppointmentNotFound } from '../../components/AppointmentNotFound';
 
 const backLinkClassName =
   'inline-flex min-h-9 items-center gap-2 rounded-md text-sm font-medium text-primary-600 transition-colors hover:text-primary-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2 focus-visible:ring-offset-app-background';
 const patientLinkClassName =
   'inline-flex min-h-9 items-center gap-2 rounded-md text-sm font-semibold text-primary-700 transition-colors hover:text-primary-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2 focus-visible:ring-offset-surface';
+const editLinkClassName =
+  'inline-flex min-h-9 items-center justify-center gap-2 rounded-md border-hairline border-border-strong bg-surface px-4 py-2 text-sm font-medium text-text-primary transition-colors hover:bg-surface-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2 focus-visible:ring-offset-surface';
 
 export const AppointmentDetailPage = () => {
   const { appointmentId } = useParams<{ appointmentId: string }>();
@@ -31,28 +34,7 @@ export const AppointmentDetailPage = () => {
   const appointment = appointments.find(({ id }) => id === appointmentId);
 
   if (!appointment) {
-    return (
-      <div className="flex min-h-full items-center justify-center p-6 text-text-primary">
-        <Card className="w-full max-w-lg text-center" padding="lg">
-          <span className="mx-auto flex size-12 items-center justify-center rounded-full bg-primary-50 text-primary-700">
-            <FiCalendar aria-hidden="true" className="size-6" />
-          </span>
-          <h2 className="mt-4 text-xl font-semibold text-text-primary">
-            {t('appointments:detail.notFound.title')}
-          </h2>
-          <p className="mt-2 text-sm text-text-secondary">
-            {t('appointments:detail.notFound.description')}
-          </p>
-          <Link
-            className="mt-6 inline-flex min-h-9 items-center justify-center gap-2 rounded-md bg-primary-action px-4 py-2 text-sm font-medium text-neutral-0 transition-colors hover:bg-primary-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2 focus-visible:ring-offset-surface"
-            to="/appointments"
-          >
-            <FiArrowLeft aria-hidden="true" className="size-4" />
-            {t('appointments:detail.back')}
-          </Link>
-        </Card>
-      </div>
-    );
+    return <AppointmentNotFound />;
   }
 
   const patient = patients.find(({ id }) => id === appointment.patientId);
@@ -91,14 +73,10 @@ export const AppointmentDetailPage = () => {
         </div>
 
         <div className="flex flex-wrap gap-2">
-          <Button
-            disabled
-            title={t('appointments:detail.actions.availableSoon')}
-            variant="secondary"
-          >
+          <Link className={editLinkClassName} to={`/appointments/${appointment.id}/edit`}>
             <FiEdit3 aria-hidden="true" className="size-4" />
             {t('appointments:detail.actions.edit')}
-          </Button>
+          </Link>
           <Button disabled title={t('appointments:detail.actions.availableSoon')} variant="danger">
             <FiXCircle aria-hidden="true" className="size-4" />
             {t('appointments:detail.actions.cancel')}

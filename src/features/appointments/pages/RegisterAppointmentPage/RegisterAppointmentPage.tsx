@@ -7,7 +7,7 @@ import { patients } from '@/features/patients/patients.mock';
 import { appointments, veterinarians } from '../../appointments.mock';
 import { getDateValue, getInitialRegisterDate } from '../../appointments.utils';
 import { AppointmentForm } from '../../components/AppointmentForm';
-import type { AppointmentFormInput } from '../../schemas/appointment-form.schema';
+import type { AppointmentFormValues } from '../../schemas/appointment-form.schema';
 
 export const RegisterAppointmentPage = () => {
   const navigate = useNavigate();
@@ -16,7 +16,7 @@ export const RegisterAppointmentPage = () => {
   const minimumDate = getDateValue(new Date());
   const requestedPatientId = searchParams.get('patientId');
   const selectedPatient = patients.find(({ id }) => id === requestedPatientId);
-  const initialValues: Partial<AppointmentFormInput> = {
+  const initialValues: Partial<AppointmentFormValues> = {
     date: getInitialRegisterDate(searchParams.get('date'), minimumDate),
     patientId: selectedPatient?.id ?? '',
   };

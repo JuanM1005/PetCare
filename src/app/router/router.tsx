@@ -9,6 +9,7 @@ import { AppLayout } from '@/components/layout';
 import {
   AppointmentDetailPage,
   AppointmentsPage,
+  EditAppointmentPage,
   RegisterAppointmentPage,
 } from '@/features/appointments';
 import { DashboardPage } from '@/features/dashboard';
@@ -76,6 +77,16 @@ export const router = createBrowserRouter([
                 handle: {
                   header: {
                     subtitleKey: 'appointments:header.registerSubtitle',
+                    titleKey: 'appointments:header.title',
+                  },
+                } satisfies AppRouteHandle,
+              },
+              {
+                path: 'appointments/:appointmentId/edit',
+                Component: EditAppointmentPage,
+                handle: {
+                  header: {
+                    subtitleKey: 'appointments:header.editSubtitle',
                     titleKey: 'appointments:header.title',
                   },
                 } satisfies AppRouteHandle,

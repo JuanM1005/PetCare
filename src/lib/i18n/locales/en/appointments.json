@@ -3,7 +3,8 @@
     "title": "Appointments",
     "subtitle": "Clinical schedule and daily availability",
     "registerSubtitle": "Schedule a new appointment",
-    "detailSubtitle": "Appointment details"
+    "detailSubtitle": "Appointment details",
+    "editSubtitle": "Edit appointment"
   },
   "page": {
     "newAppointment": "New appointment",
@@ -179,5 +180,11 @@
       "title": "Appointment not found",
       "description": "We couldn't find the requested appointment."
     }
+  },
+  "edit": {
+    "title": "Edit appointment",
+    "description": "Update the appointment schedule and details.",
+    "back": "Back to appointment",
+    "submitValidated": "Appointment changes validated. Persistence will be integrated later."
   }
 }

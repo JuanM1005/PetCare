@@ -1,0 +1,1 @@
+export { AppointmentNotFound } from './AppointmentNotFound';

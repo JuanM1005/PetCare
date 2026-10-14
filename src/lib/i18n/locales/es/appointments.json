@@ -3,7 +3,8 @@
     "title": "Citas",
     "subtitle": "Agenda clínica y disponibilidad del día",
     "registerSubtitle": "Programar nueva cita",
-    "detailSubtitle": "Detalle de la cita"
+    "detailSubtitle": "Detalle de la cita",
+    "editSubtitle": "Editar cita"
   },
   "page": {
     "newAppointment": "Nueva cita",
@@ -179,5 +180,11 @@
       "title": "Cita no encontrada",
       "description": "No pudimos encontrar la cita solicitada."
     }
+  },
+  "edit": {
+    "title": "Editar cita",
+    "description": "Actualiza la programación y los detalles de la cita.",
+    "back": "Volver a la cita",
+    "submitValidated": "Cambios de la cita validados. La persistencia se integrará posteriormente."
   }
 }

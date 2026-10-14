@@ -12,7 +12,7 @@ import {
   trim,
 } from 'valibot';
 
-import type { AppointmentType } from '../appointments.types';
+import type { AppointmentDuration, AppointmentType } from '../appointments.types';
 import { isValidDateValue } from '../appointments.utils';
 
 export const appointmentFormTypes = [
@@ -22,8 +22,7 @@ export const appointmentFormTypes = [
   'weight_control',
 ] as const satisfies readonly AppointmentType[];
 
-export const appointmentDurations = [30, 60, 90] as const;
-export type AppointmentDuration = (typeof appointmentDurations)[number];
+export const appointmentDurations = [30, 60, 90] as const satisfies readonly AppointmentDuration[];
 
 export interface AppointmentFormSchemaOptions {
   minimumDate: string;
