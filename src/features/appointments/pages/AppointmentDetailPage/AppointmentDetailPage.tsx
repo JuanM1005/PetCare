@@ -1,4 +1,6 @@
+import { useState } from 'react';
 import {
+  FiAlertTriangle,
   FiArrowLeft,
   FiCalendar,
   FiClock,
@@ -10,15 +12,20 @@ import {
 } from 'react-icons/fi';
 import { useTranslation } from 'react-i18next';
 import { Link, useParams } from 'react-router';
+import { toast } from 'react-hot-toast';
 
-import { Badge, Button, Card } from '@/components/ui';
+import { Badge, Button, Card, Modal } from '@/components/ui';
 import { PatientAvatar } from '@/features/patients/components/PatientAvatar';
 import { patients } from '@/features/patients/patients.mock';
 import { getSupportedLanguage, languageLocales } from '@/lib/i18n';
 
 import { appointmentStatusBadgeVariants } from '../../appointments.constants';
 import { appointments, veterinarians } from '../../appointments.mock';
-import { getAppointmentEndTime, getLocalDate } from '../../appointments.utils';
+import {
+  canCancelAppointment,
+  getAppointmentEndTime,
+  getLocalDate,
+} from '../../appointments.utils';
 import { AppointmentNotFound } from '../../components/AppointmentNotFound';
 
 const backLinkClassName =
@@ -31,6 +38,7 @@ const editLinkClassName =
 export const AppointmentDetailPage = () => {
   const { appointmentId } = useParams<{ appointmentId: string }>();
   const { i18n, t } = useTranslation(['appointments', 'patients']);
+  const [isCancelModalOpen, setIsCancelModalOpen] = useState(false);
   const appointment = appointments.find(({ id }) => id === appointmentId);
 
   if (!appointment) {
@@ -44,6 +52,14 @@ export const AppointmentDetailPage = () => {
     dateStyle: 'long',
   }).format(getLocalDate(appointment.date));
   const endTime = getAppointmentEndTime(appointment.startTime, appointment.durationMinutes);
+  const appointmentType = t(`appointments:types.${appointment.type}`);
+  const patientName = patient?.name ?? t('appointments:detail.patient.unavailable');
+  const isCancellationAvailable = canCancelAppointment(appointment.status);
+
+  const handleCancelAppointment = () => {
+    setIsCancelModalOpen(false);
+    toast(t('appointments:detail.cancelModal.temporaryToast'));
+  };
 
   return (
     <div className="flex min-h-full min-w-0 flex-col gap-5 p-4 text-text-primary sm:p-6">
@@ -59,7 +75,7 @@ export const AppointmentDetailPage = () => {
         <div className="min-w-0">
           <div className="flex flex-wrap items-center gap-3">
             <h2 className="text-2xl font-semibold text-text-primary" id="appointment-detail-title">
-              {t(`appointments:types.${appointment.type}`)}
+              {appointmentType}
             </h2>
             <Badge variant={appointmentStatusBadgeVariants[appointment.status]}>
               {t(`appointments:statuses.${appointment.status}`)}
@@ -77,7 +93,11 @@ export const AppointmentDetailPage = () => {
             <FiEdit3 aria-hidden="true" className="size-4" />
             {t('appointments:detail.actions.edit')}
           </Link>
-          <Button disabled title={t('appointments:detail.actions.availableSoon')} variant="danger">
+          <Button
+            disabled={!isCancellationAvailable}
+            onClick={() => setIsCancelModalOpen(true)}
+            variant="danger"
+          >
             <FiXCircle aria-hidden="true" className="size-4" />
             {t('appointments:detail.actions.cancel')}
           </Button>
@@ -134,9 +154,7 @@ export const AppointmentDetailPage = () => {
                 <dt className="text-xs font-semibold uppercase text-text-muted">
                   {t('appointments:detail.details.reason')}
                 </dt>
-                <dd className="mt-1 text-sm font-medium text-text-primary">
-                  {t(`appointments:types.${appointment.type}`)}
-                </dd>
+                <dd className="mt-1 text-sm font-medium text-text-primary">{appointmentType}</dd>
               </div>
               <div>
                 <dt className="text-xs font-semibold uppercase text-text-muted">
@@ -195,6 +213,47 @@ export const AppointmentDetailPage = () => {
           </Card>
         </aside>
       </div>
+
+      <Modal
+        description={t('appointments:detail.cancelModal.description', { patientName })}
+        footer={
+          <>
+            <Button onClick={() => setIsCancelModalOpen(false)} variant="secondary">
+              {t('appointments:detail.cancelModal.back')}
+            </Button>
+            <Button onClick={handleCancelAppointment} variant="danger">
+              <FiXCircle aria-hidden="true" className="size-4" />
+              {t('appointments:detail.cancelModal.confirm')}
+            </Button>
+          </>
+        }
+        isOpen={isCancelModalOpen}
+        onClose={() => setIsCancelModalOpen(false)}
+        showCloseButton={false}
+        title={t('appointments:detail.cancelModal.title')}
+      >
+        <div className="space-y-4">
+          <div
+            aria-label={t('appointments:detail.cancelModal.summaryLabel')}
+            className="rounded-md border-hairline border-border bg-surface-subtle p-4"
+            role="group"
+          >
+            <p className="font-medium text-text-primary">
+              <time dateTime={`${appointment.date}T${appointment.startTime}`}>
+                {formattedDate} · {appointment.startTime}
+              </time>
+            </p>
+            <p className="mt-1 text-sm text-text-secondary">{appointmentType}</p>
+          </div>
+
+          <div className="flex gap-3 rounded-md border border-danger/30 bg-danger/10 p-4">
+            <FiAlertTriangle aria-hidden="true" className="mt-0.5 size-5 shrink-0 text-danger" />
+            <p className="text-sm text-text-primary">
+              {t('appointments:detail.cancelModal.warning')}
+            </p>
+          </div>
+        </div>
+      </Modal>
     </div>
   );
 };

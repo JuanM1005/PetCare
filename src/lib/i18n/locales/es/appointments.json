@@ -153,8 +153,16 @@
     "back": "Volver a citas",
     "actions": {
       "edit": "Editar cita",
-      "cancel": "Cancelar cita",
-      "availableSoon": "Disponible en una próxima etapa"
+      "cancel": "Cancelar cita"
+    },
+    "cancelModal": {
+      "title": "Cancelar cita",
+      "description": "¿Deseas cancelar la cita de {{patientName}}?",
+      "summaryLabel": "Cita que se cancelará",
+      "warning": "La cita permanecerá en el historial con estado Cancelada.",
+      "back": "Volver",
+      "confirm": "Cancelar cita",
+      "temporaryToast": "Cancelación validada. La persistencia se integrará posteriormente; no se realizaron cambios."
     },
     "schedule": {
       "title": "Fecha y hora",

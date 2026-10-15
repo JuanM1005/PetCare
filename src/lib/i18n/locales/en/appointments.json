@@ -153,8 +153,16 @@
     "back": "Back to appointments",
     "actions": {
       "edit": "Edit appointment",
-      "cancel": "Cancel appointment",
-      "availableSoon": "Available in a future stage"
+      "cancel": "Cancel appointment"
+    },
+    "cancelModal": {
+      "title": "Cancel appointment",
+      "description": "Do you want to cancel {{patientName}}'s appointment?",
+      "summaryLabel": "Appointment to cancel",
+      "warning": "The appointment will remain in the history with Cancelled status.",
+      "back": "Go back",
+      "confirm": "Cancel appointment",
+      "temporaryToast": "Cancellation validated. Persistence will be integrated later; no changes were made."
     },
     "schedule": {
       "title": "Date and time",
