@@ -1,30 +1,67 @@
+import type { ComponentType } from 'react';
 import { createBrowserRouter, Navigate } from 'react-router';
 
 import { App } from '@/app/App';
-import { DesignSystemPreviewPage } from '@/app/dev/DesignSystemPreviewPage';
 import { SidebarPreviewPage } from '@/app/dev/SidebarPreviewPage';
-import { NotFoundPage } from '@/app/pages/NotFoundPage';
 import { RouteErrorPage } from '@/app/pages/RouteErrorPage';
 import { AppLayout } from '@/components/layout';
-import {
-  AppointmentDetailPage,
-  AppointmentsPage,
-  EditAppointmentPage,
-  RegisterAppointmentPage,
-} from '@/features/appointments';
-import { DashboardPage } from '@/features/dashboard';
-import {
-  EditPatientPage,
-  PatientDetailLayout,
-  PatientAppointmentsPage,
-  PatientHistoryPage,
-  PatientsPage,
-  PatientSummaryPage,
-  RegisterPatientPage,
-} from '@/features/patients';
-import { SettingsPage } from '@/features/settings';
 
 import type { AppRouteHandle } from './router.types';
+
+const loadAppointmentRoutes = () => import('@/features/appointments');
+const loadPatientRoutes = () => import('@/features/patients');
+
+const createLazyRoute =
+  <TComponent extends ComponentType>(loadComponent: () => Promise<TComponent>) =>
+  async () => ({ Component: await loadComponent() });
+
+const loadDashboardRoute = createLazyRoute(() =>
+  import('@/features/dashboard/DashboardPage').then(({ DashboardPage }) => DashboardPage),
+);
+const loadAppointmentsRoute = createLazyRoute(() =>
+  loadAppointmentRoutes().then(({ AppointmentsPage }) => AppointmentsPage),
+);
+const loadRegisterAppointmentRoute = createLazyRoute(() =>
+  loadAppointmentRoutes().then(({ RegisterAppointmentPage }) => RegisterAppointmentPage),
+);
+const loadEditAppointmentRoute = createLazyRoute(() =>
+  loadAppointmentRoutes().then(({ EditAppointmentPage }) => EditAppointmentPage),
+);
+const loadAppointmentDetailRoute = createLazyRoute(() =>
+  loadAppointmentRoutes().then(({ AppointmentDetailPage }) => AppointmentDetailPage),
+);
+const loadPatientsRoute = createLazyRoute(() =>
+  loadPatientRoutes().then(({ PatientsPage }) => PatientsPage),
+);
+const loadRegisterPatientRoute = createLazyRoute(() =>
+  loadPatientRoutes().then(({ RegisterPatientPage }) => RegisterPatientPage),
+);
+const loadEditPatientRoute = createLazyRoute(() =>
+  loadPatientRoutes().then(({ EditPatientPage }) => EditPatientPage),
+);
+const loadPatientDetailRoute = createLazyRoute(() =>
+  loadPatientRoutes().then(({ PatientDetailLayout }) => PatientDetailLayout),
+);
+const loadPatientSummaryRoute = createLazyRoute(() =>
+  loadPatientRoutes().then(({ PatientSummaryPage }) => PatientSummaryPage),
+);
+const loadPatientHistoryRoute = createLazyRoute(() =>
+  loadPatientRoutes().then(({ PatientHistoryPage }) => PatientHistoryPage),
+);
+const loadPatientAppointmentsRoute = createLazyRoute(() =>
+  loadPatientRoutes().then(({ PatientAppointmentsPage }) => PatientAppointmentsPage),
+);
+const loadSettingsRoute = createLazyRoute(() =>
+  import('@/features/settings/SettingsPage').then(({ SettingsPage }) => SettingsPage),
+);
+const loadDesignSystemRoute = createLazyRoute(() =>
+  import('@/app/dev/DesignSystemPreviewPage').then(
+    ({ DesignSystemPreviewPage }) => DesignSystemPreviewPage,
+  ),
+);
+const loadNotFoundRoute = createLazyRoute(() =>
+  import('@/app/pages/NotFoundPage/NotFoundPage').then(({ NotFoundPage }) => NotFoundPage),
+);
 
 export const router = createBrowserRouter([
   {
@@ -38,7 +75,7 @@ export const router = createBrowserRouter([
       },
       {
         path: 'design-system',
-        Component: DesignSystemPreviewPage,
+        lazy: loadDesignSystemRoute,
       },
       {
         path: 'sidebar-preview',
@@ -53,7 +90,7 @@ export const router = createBrowserRouter([
             children: [
               {
                 path: 'dashboard',
-                Component: DashboardPage,
+                lazy: loadDashboardRoute,
                 handle: {
                   header: {
                     subtitleKey: 'dashboard:header.subtitle',
@@ -63,7 +100,7 @@ export const router = createBrowserRouter([
               },
               {
                 path: 'appointments',
-                Component: AppointmentsPage,
+                lazy: loadAppointmentsRoute,
                 handle: {
                   header: {
                     subtitleKey: 'appointments:header.subtitle',
@@ -73,7 +110,7 @@ export const router = createBrowserRouter([
               },
               {
                 path: 'appointments/register',
-                Component: RegisterAppointmentPage,
+                lazy: loadRegisterAppointmentRoute,
                 handle: {
                   header: {
                     subtitleKey: 'appointments:header.registerSubtitle',
@@ -83,7 +120,7 @@ export const router = createBrowserRouter([
               },
               {
                 path: 'appointments/:appointmentId/edit',
-                Component: EditAppointmentPage,
+                lazy: loadEditAppointmentRoute,
                 handle: {
                   header: {
                     subtitleKey: 'appointments:header.editSubtitle',
@@ -93,7 +130,7 @@ export const router = createBrowserRouter([
               },
               {
                 path: 'appointments/:appointmentId',
-                Component: AppointmentDetailPage,
+                lazy: loadAppointmentDetailRoute,
                 handle: {
                   header: {
                     subtitleKey: 'appointments:header.detailSubtitle',
@@ -103,7 +140,7 @@ export const router = createBrowserRouter([
               },
               {
                 path: 'patients',
-                Component: PatientsPage,
+                lazy: loadPatientsRoute,
                 handle: {
                   header: {
                     subtitleKey: 'patients:header.subtitle',
@@ -113,7 +150,7 @@ export const router = createBrowserRouter([
               },
               {
                 path: 'patients/register',
-                Component: RegisterPatientPage,
+                lazy: loadRegisterPatientRoute,
                 handle: {
                   header: {
                     subtitleKey: 'patients:header.registerSubtitle',
@@ -123,7 +160,7 @@ export const router = createBrowserRouter([
               },
               {
                 path: 'patients/:patientId/edit',
-                Component: EditPatientPage,
+                lazy: loadEditPatientRoute,
                 handle: {
                   header: {
                     subtitleKey: 'patients:header.editSubtitle',
@@ -133,7 +170,7 @@ export const router = createBrowserRouter([
               },
               {
                 path: 'patients/:patientId',
-                Component: PatientDetailLayout,
+                lazy: loadPatientDetailRoute,
                 handle: {
                   header: {
                     subtitleKey: 'patients:header.detailSubtitle',
@@ -143,21 +180,21 @@ export const router = createBrowserRouter([
                 children: [
                   {
                     index: true,
-                    Component: PatientSummaryPage,
+                    lazy: loadPatientSummaryRoute,
                   },
                   {
                     path: 'history',
-                    Component: PatientHistoryPage,
+                    lazy: loadPatientHistoryRoute,
                   },
                   {
                     path: 'appointments',
-                    Component: PatientAppointmentsPage,
+                    lazy: loadPatientAppointmentsRoute,
                   },
                 ],
               },
               {
                 path: 'settings',
-                Component: SettingsPage,
+                lazy: loadSettingsRoute,
                 handle: {
                   header: {
                     subtitleKey: 'settings:header.subtitle',
@@ -167,7 +204,7 @@ export const router = createBrowserRouter([
               },
               {
                 path: '*',
-                Component: NotFoundPage,
+                lazy: loadNotFoundRoute,
                 handle: {
                   header: {
                     subtitleKey: 'layout:header.notFound.subtitle',
