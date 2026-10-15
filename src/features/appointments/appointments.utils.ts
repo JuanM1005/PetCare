@@ -4,6 +4,7 @@ import type {
   Appointment,
   AppointmentDisplayItem,
   AppointmentFilterState,
+  AppointmentStatus,
   CalendarDay,
   Veterinarian,
 } from './appointments.types';
@@ -15,6 +16,15 @@ export const CLINIC_SCHEDULE = {
 } as const;
 
 export const initialAppointmentDate = '2026-10-14';
+
+/**
+ * Determina si una cita puede cancelarse mediante el flujo administrativo actual.
+ *
+ * Las citas en curso, completadas o ya canceladas requieren otros flujos
+ * y no pueden cancelarse desde el detalle de la cita.
+ */
+export const canCancelAppointment = (status: AppointmentStatus): boolean =>
+  status === 'scheduled' || status === 'confirmed';
 
 const timeToMinutes = (time: string): number => {
   const [hours = 0, minutes = 0] = time.split(':').map(Number);

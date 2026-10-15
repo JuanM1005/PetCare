@@ -1,6 +1,9 @@
 import { FiCalendar, FiFileText, FiHeart, FiHome, FiUsers } from 'react-icons/fi';
 import type { IconType } from 'react-icons';
 
+import { appointments } from '@/features/appointments/appointments.mock';
+import { getActiveAppointmentsCount } from '@/features/appointments/appointments.selectors';
+
 interface SidebarNavItem {
   badge?: number;
   icon: IconType;
@@ -13,10 +16,17 @@ interface SidebarNavItem {
   to: string;
 }
 
+const appointmentsCount = getActiveAppointmentsCount(appointments);
+
 export const sidebarNavItems = [
   { icon: FiHome, labelKey: 'navigation.dashboard', to: '/dashboard' },
   { icon: FiHeart, labelKey: 'navigation.patients', to: '/patients' },
-  { badge: 8, icon: FiCalendar, labelKey: 'navigation.appointments', to: '/appointments' },
+  {
+    badge: appointmentsCount,
+    icon: FiCalendar,
+    labelKey: 'navigation.appointments',
+    to: '/appointments',
+  },
   { icon: FiFileText, labelKey: 'navigation.medicalRecords', to: '/medical-records' },
   { icon: FiUsers, labelKey: 'navigation.owners', to: '/owners' },
 ] satisfies readonly SidebarNavItem[];
